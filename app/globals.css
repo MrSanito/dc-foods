@@ -1,26 +1,118 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Palette (Pixel sampled & contrast checked from official card) */
+  --green-900: #022413;  /* primary dark - deep forest green */
+  --green-800: #072C1A;  /* lit surface */
+  --green-700: #143323;  /* soft highlight */
+  --gold-500: #CA9234;   /* main accent */
+  --gold-300: #E0AB48;   /* foil highlight */
+  --gold-100: #F1CA7F;   /* light foil shine */
+  --gold-700: #A57120;   /* foil shadow */
+  --gold-900: #80530F;   /* accessible gold-coloured text on light bg (5.3:1 contrast) */
+  --cream-100: #F6EFE7;  /* lighter front card */
+  --cream-200: #EDE5DF;  /* warm page background */
+  --cream-text: #DADDCB; /* natural soft cream for text on dark green (13:1 contrast) */
+  --olive-600: #6C6831;  /* "FOODS" wordmark tone */
+
+  --gold-foil: linear-gradient(135deg, #F1CA7F 0%, #E0AB48 30%, #CA9234 55%, #A57120 80%, #80530F 100%);
+  --gold-foil-subtle: linear-gradient(135deg, rgba(241, 202, 127, 0.15) 0%, rgba(202, 146, 52, 0.08) 100%);
+  --dark-gradient: linear-gradient(180deg, #022413 0%, #072C1A 50%, #022413 100%);
+
+  --background: #EDE5DF;
+  --foreground: #022413;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-green-900: var(--green-900);
+  --color-green-800: var(--green-800);
+  --color-green-700: var(--green-700);
+  --color-gold-500: var(--gold-500);
+  --color-gold-300: var(--gold-300);
+  --color-gold-100: var(--gold-100);
+  --color-gold-700: var(--gold-700);
+  --color-gold-900: var(--gold-900);
+  --color-cream-100: var(--cream-100);
+  --color-cream-200: var(--cream-200);
+  --color-cream-text: var(--cream-text);
+  --color-olive-600: var(--olive-600);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--cream-200);
+  color: var(--green-900);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Gold Foil Utility Classes */
+.bg-gold-foil {
+  background: var(--gold-foil);
+}
+
+.text-gold-foil {
+  background: var(--gold-foil);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gold-foil {
+  border-image: var(--gold-foil) 1;
+}
+
+.gold-glow {
+  box-shadow: 0 0 25px rgba(202, 146, 52, 0.35);
+}
+
+.gold-subtle-glow {
+  box-shadow: 0 4px 20px rgba(202, 146, 52, 0.15);
+}
+
+/* Forest Green Container Styles */
+.bg-forest-900 {
+  background-color: var(--green-900);
+}
+
+.bg-forest-800 {
+  background-color: var(--green-800);
+}
+
+.bg-forest-gradient {
+  background: linear-gradient(135deg, #022413 0%, #072C1A 50%, #022413 100%);
+}
+
+.bg-forest-card {
+  background: linear-gradient(145deg, #072C1A 0%, #022413 100%);
+  border: 1px solid rgba(202, 146, 52, 0.25);
+}
+
+/* Cream Accents */
+.bg-cream-100 {
+  background-color: var(--cream-100);
+}
+
+.bg-cream-200 {
+  background-color: var(--cream-200);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #022413;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CA9234;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E0AB48;
 }
