@@ -38,22 +38,22 @@ export function FarmToForkJourney() {
   ];
 
   return (
-    <section id="factory-journey" className="w-full py-16 px-4 sm:px-8 bg-[#022413] text-[#F6EFE7] border-b border-[#CA9234]/30 relative overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-1/2 -right-24 w-96 h-96 bg-[#072C1A] rounded-full blur-3xl opacity-50 pointer-events-none" />
+    <section id="factory-journey" className="w-full py-16 px-4 sm:px-8 bg-white text-[#022413] border-b border-[#CA9234]/20 relative overflow-hidden">
+      {/* Background soft ambient glow */}
+      <div className="absolute top-1/2 -right-24 w-96 h-96 bg-[#CA9234]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#072C1A] border border-[#CA9234]/40 text-[#F1CA7F] text-xs font-bold uppercase tracking-wider mb-3">
-            <SparklesIcon className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF9F6] border border-[#CA9234]/40 text-[#80530F] text-xs font-bold uppercase tracking-wider mb-3">
+            <SparklesIcon className="w-3.5 h-3.5 text-[#CA9234]" />
             <span>Farm-To-Fork Excellence</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-[#022413]">
             How Nature&apos;s Sweetness is <br />
             <span className="text-gold-foil">Perfected in Vadodara</span>
           </h2>
-          <p className="text-sm sm:text-base text-[#DADDCB] mt-3">
+          <p className="text-sm sm:text-base text-[#143323]/80 mt-3">
             Unlike mass-market fried snacks or chemically bleached spices, DC Foods relies on state-of-the-art low-temperature dehydration and cryo-grinding.
           </p>
         </div>
@@ -61,21 +61,22 @@ export function FarmToForkJourney() {
         {/* Journey Graphic Card & Step Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-12">
           {/* Left: Real Process Journey Infographic Render */}
-          <div className="lg:col-span-6 rounded-2xl overflow-hidden border border-[#CA9234]/40 shadow-2xl relative bg-[#072C1A] group">
+          <div className="lg:col-span-6 rounded-2xl overflow-hidden border border-[#CA9234]/40 shadow-xl relative bg-white group">
             <div className="relative w-full h-[340px] sm:h-[420px]">
               <Image
                 src={ASSETS.infographics.mangoProductionJourney}
                 alt="DC Foods The Pure Mango Journey Process"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
-            <div className="p-4 bg-[#072C1A] border-t border-[#CA9234]/20 flex items-center justify-between text-xs text-[#DADDCB]">
-              <span className="flex items-center gap-1.5 text-[#F1CA7F] font-bold">
-                <LeafIcon className="w-4 h-4" />
+            <div className="p-4 bg-[#FAF9F6] border-t border-[#CA9234]/25 flex items-center justify-between text-xs text-[#022413]">
+              <span className="flex items-center gap-1.5 text-[#80530F] font-bold">
+                <LeafIcon className="w-4 h-4 text-[#CA9234]" />
                 <span>The Pure Mango Journey</span>
               </span>
-              <span className="text-[#DADDCB]/70">Vadodara Industrial Processing Unit</span>
+              <span className="text-[#143323]/70 font-medium">Vadodara Industrial Processing Unit</span>
             </div>
           </div>
 
@@ -84,19 +85,19 @@ export function FarmToForkJourney() {
             {steps.map((st) => (
               <div
                 key={st.num}
-                className="p-4 rounded-xl bg-[#072C1A]/80 border border-[#CA9234]/30 hover:border-[#CA9234] transition-all flex items-start gap-4"
+                className="p-4 rounded-xl bg-white border border-[#CA9234]/25 hover:border-[#CA9234] shadow-sm hover:shadow-md transition-all flex items-start gap-4"
               >
-                <span className="text-lg font-black text-gold-foil shrink-0 pt-0.5">
+                <span className="text-xl font-black text-gold-foil shrink-0 pt-0.5">
                   {st.num}
                 </span>
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center justify-between gap-1 mb-1">
-                    <h4 className="text-sm font-bold text-[#F6EFE7]">{st.title}</h4>
-                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#022413] text-[#F1CA7F] border border-[#CA9234]/30">
+                    <h4 className="text-sm font-bold text-[#022413]">{st.title}</h4>
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#FAF9F6] text-[#80530F] border border-[#CA9234]/30">
                       {st.badge}
                     </span>
                   </div>
-                  <p className="text-xs text-[#DADDCB]/80 leading-relaxed">{st.desc}</p>
+                  <p className="text-xs text-[#143323]/80 leading-relaxed">{st.desc}</p>
                 </div>
               </div>
             ))}
@@ -105,25 +106,25 @@ export function FarmToForkJourney() {
 
         {/* Quality Badges Row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-[#CA9234]/20 text-center">
-          <div className="p-4 rounded-xl bg-[#072C1A] border border-[#CA9234]/20">
-            <ShieldCheckIcon className="w-6 h-6 text-[#F1CA7F] mx-auto mb-2" />
-            <span className="block text-xs font-bold text-[#F6EFE7]">Food Safety Compliant</span>
-            <span className="text-[11px] text-[#DADDCB]/70">FSSAI Certified</span>
+          <div className="p-4 rounded-xl bg-[#FAF9F6] border border-[#CA9234]/25 shadow-xs">
+            <ShieldCheckIcon className="w-6 h-6 text-[#CA9234] mx-auto mb-2" />
+            <span className="block text-xs font-bold text-[#022413]">Food Safety Compliant</span>
+            <span className="text-[11px] text-[#143323]/70">FSSAI Certified</span>
           </div>
-          <div className="p-4 rounded-xl bg-[#072C1A] border border-[#CA9234]/20">
-            <LeafIcon className="w-6 h-6 text-[#F1CA7F] mx-auto mb-2" />
-            <span className="block text-xs font-bold text-[#F6EFE7]">100% Pure &amp; Natural</span>
-            <span className="text-[11px] text-[#DADDCB]/70">Zero Artificial Colors</span>
+          <div className="p-4 rounded-xl bg-[#FAF9F6] border border-[#CA9234]/25 shadow-xs">
+            <LeafIcon className="w-6 h-6 text-[#CA9234] mx-auto mb-2" />
+            <span className="block text-xs font-bold text-[#022413]">100% Pure &amp; Natural</span>
+            <span className="text-[11px] text-[#143323]/70">Zero Artificial Colors</span>
           </div>
-          <div className="p-4 rounded-xl bg-[#072C1A] border border-[#CA9234]/20">
-            <FactoryIcon className="w-6 h-6 text-[#F1CA7F] mx-auto mb-2" />
-            <span className="block text-xs font-bold text-[#F6EFE7]">Waghodiya GIDC Plant</span>
-            <span className="text-[11px] text-[#DADDCB]/70">Direct Factory Dispatch</span>
+          <div className="p-4 rounded-xl bg-[#FAF9F6] border border-[#CA9234]/25 shadow-xs">
+            <FactoryIcon className="w-6 h-6 text-[#CA9234] mx-auto mb-2" />
+            <span className="block text-xs font-bold text-[#022413]">Waghodiya GIDC Plant</span>
+            <span className="text-[11px] text-[#143323]/70">Direct Factory Dispatch</span>
           </div>
-          <div className="p-4 rounded-xl bg-[#072C1A] border border-[#CA9234]/20">
-            <SparklesIcon className="w-6 h-6 text-[#F1CA7F] mx-auto mb-2" />
-            <span className="block text-xs font-bold text-[#F6EFE7]">Low-Temp Drying</span>
-            <span className="text-[11px] text-[#DADDCB]/70">Retains Vitamins &amp; Aroma</span>
+          <div className="p-4 rounded-xl bg-[#FAF9F6] border border-[#CA9234]/25 shadow-xs">
+            <SparklesIcon className="w-6 h-6 text-[#CA9234] mx-auto mb-2" />
+            <span className="block text-xs font-bold text-[#022413]">Low-Temp Drying</span>
+            <span className="text-[11px] text-[#143323]/70">Retains Vitamins &amp; Aroma</span>
           </div>
         </div>
       </div>

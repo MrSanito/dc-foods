@@ -39,7 +39,7 @@ export function RetailPresenceSection() {
   ];
 
   return (
-    <section className="w-full py-16 px-4 sm:px-8 bg-[#EDE5DF] border-b border-[#CA9234]/30">
+    <section className="w-full py-16 px-4 sm:px-8 bg-white border-b border-[#CA9234]/20">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
@@ -63,7 +63,7 @@ export function RetailPresenceSection() {
               className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
                 activeMediaTab === "shelves"
                   ? "bg-[#022413] text-[#F1CA7F]"
-                  : "text-[#072C1A] hover:bg-[#EDE5DF]"
+                  : "text-[#022413] hover:bg-[#FAF9F6]"
               }`}
             >
               Supermarket Planograms
@@ -73,7 +73,7 @@ export function RetailPresenceSection() {
               className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
                 activeMediaTab === "ooh"
                   ? "bg-[#022413] text-[#F1CA7F]"
-                  : "text-[#072C1A] hover:bg-[#EDE5DF]"
+                  : "text-[#022413] hover:bg-[#FAF9F6]"
               }`}
             >
               OOH Hoardings &amp; Campaigns
@@ -85,50 +85,52 @@ export function RetailPresenceSection() {
         {activeMediaTab === "shelves" && (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Shelf Display 1 */}
-            <div className="rounded-2xl overflow-hidden bg-[#022413] border border-[#CA9234]/40 shadow-xl group">
-              <div className="relative w-full h-[320px] sm:h-[400px]">
+            <div className="rounded-2xl overflow-hidden bg-white border border-[#CA9234]/30 shadow-xl group">
+              <div className="relative w-full h-[320px] sm:h-[400px] bg-[#F5F2EB]">
                 <Image
                   src={ASSETS.banners.retailShelfProducts}
                   alt="DC Foods Supermarket Planogram"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <div className="p-5 text-[#DADDCB]">
+              <div className="p-5 text-[#022413] bg-white">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-bold text-[#F6EFE7]">
+                  <h3 className="text-lg font-bold text-[#022413]">
                     Modern Trade Retail Planogram
                   </h3>
-                  <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#CA9234]/20 text-[#F1CA7F] border border-[#CA9234]/40">
+                  <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#FAF9F6] text-[#80530F] border border-[#CA9234]/40">
                     5-Division Layout
                   </span>
                 </div>
-                <p className="text-xs text-[#DADDCB]/80 leading-relaxed">
+                <p className="text-xs text-[#143323]/80 leading-relaxed">
                   Engineered 3-tier supermarket rack structure positioning daily dairy essentials on top, premium spices in the middle, and quick-impulse dehydrated fruit snacks on the lower deck.
                 </p>
               </div>
             </div>
 
             {/* Shelf Display 2 */}
-            <div className="rounded-2xl overflow-hidden bg-[#022413] border border-[#CA9234]/40 shadow-xl group">
-              <div className="relative w-full h-[320px] sm:h-[400px]">
+            <div className="rounded-2xl overflow-hidden bg-white border border-[#CA9234]/30 shadow-xl group">
+              <div className="relative w-full h-[320px] sm:h-[400px] bg-[#F5F2EB]">
                 <Image
                   src={ASSETS.banners.retailShelfWeights}
                   alt="DC Foods Weight Configurations"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <div className="p-5 text-[#DADDCB]">
+              <div className="p-5 text-[#022413] bg-white">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-bold text-[#F6EFE7]">
+                  <h3 className="text-lg font-bold text-[#022413]">
                     Standardized Packaging &amp; Weight Configs
                   </h3>
-                  <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#CA9234]/20 text-[#F1CA7F] border border-[#CA9234]/40">
+                  <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#FAF9F6] text-[#80530F] border border-[#CA9234]/40">
                     100g, 200g, 500g
                   </span>
                 </div>
-                <p className="text-xs text-[#DADDCB]/80 leading-relaxed">
+                <p className="text-xs text-[#143323]/80 leading-relaxed">
                   Uniform pouch dimensions and barcode integrations across modern retail formats, cash-and-carry stores, and standalone FMCG grocers.
                 </p>
               </div>
@@ -142,16 +144,17 @@ export function RetailPresenceSection() {
             {oohCampaigns.map((camp, idx) => (
               <div
                 key={idx}
-                className="rounded-2xl overflow-hidden bg-white border border-[#CA9234]/30 shadow-md hover:shadow-xl transition-all flex flex-col justify-between group"
+                className="rounded-2xl overflow-hidden bg-white border border-[#CA9234]/25 shadow-md hover:shadow-xl hover:border-[#CA9234] transition-all flex flex-col justify-between group"
               >
-                <div className="relative w-full h-56 bg-[#022413] overflow-hidden">
+                <div className="relative w-full h-56 bg-[#F5F2EB] overflow-hidden">
                   <Image
                     src={camp.image}
                     alt={camp.title}
                     fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-2 left-2 bg-[#022413]/85 backdrop-blur-sm text-[#F1CA7F] text-[10px] font-bold px-2 py-0.5 rounded border border-[#CA9234]/40">
+                  <div className="absolute top-2 left-2 bg-white/95 backdrop-blur-sm text-[#022413] text-[10px] font-bold px-2 py-0.5 rounded border border-[#CA9234]/40 shadow-xs">
                     {camp.product}
                   </div>
                 </div>
@@ -163,7 +166,7 @@ export function RetailPresenceSection() {
                       <Building2Icon className="w-3 h-3 text-[#80530F]" />
                       <span>{camp.location}</span>
                     </p>
-                    <p className="text-xs text-[#072C1A]/80 leading-relaxed">{camp.desc}</p>
+                    <p className="text-xs text-[#143323]/80 leading-relaxed">{camp.desc}</p>
                   </div>
                 </div>
               </div>

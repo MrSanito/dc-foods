@@ -10,16 +10,16 @@
   --gold-100: #F1CA7F;   /* light foil shine */
   --gold-700: #A57120;   /* foil shadow */
   --gold-900: #80530F;   /* accessible gold-coloured text on light bg (5.3:1 contrast) */
-  --cream-100: #F6EFE7;  /* lighter front card */
-  --cream-200: #EDE5DF;  /* warm page background */
-  --cream-text: #DADDCB; /* natural soft cream for text on dark green (13:1 contrast) */
+  --cream-100: #FFFFFF;  /* pure crisp white */
+  --cream-200: #FAF9F6;  /* radiant, clean porcelain light background */
+  --cream-text: #143323; /* crisp readable text */
   --olive-600: #6C6831;  /* "FOODS" wordmark tone */
 
   --gold-foil: linear-gradient(135deg, #F1CA7F 0%, #E0AB48 30%, #CA9234 55%, #A57120 80%, #80530F 100%);
   --gold-foil-subtle: linear-gradient(135deg, rgba(241, 202, 127, 0.15) 0%, rgba(202, 146, 52, 0.08) 100%);
   --dark-gradient: linear-gradient(180deg, #022413 0%, #072C1A 50%, #022413 100%);
 
-  --background: #EDE5DF;
+  --background: #FFFFFF;
   --foreground: #022413;
 }
 
@@ -43,7 +43,7 @@ html {
 }
 
 body {
-  background-color: var(--cream-200);
+  background-color: #FFFFFF;
   color: var(--green-900);
   font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   overflow-x: hidden;

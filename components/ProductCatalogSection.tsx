@@ -253,12 +253,12 @@ export function ProductCatalogSection({ onInquire }: ProductCatalogProps) {
   });
 
   return (
-    <section id="products" className="w-full py-16 px-4 sm:px-8 bg-[#EDE5DF] border-b border-[#CA9234]/30">
+    <section id="products" className="w-full py-16 px-4 sm:px-8 bg-[#FAF9F6] border-b border-[#CA9234]/20">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#CA9234]/20 border border-[#CA9234]/40 text-[#80530F] text-xs font-bold uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#CA9234]/15 border border-[#CA9234]/40 text-[#80530F] text-xs font-bold uppercase tracking-wider mb-2">
               <SparklesIcon className="w-3.5 h-3.5 text-[#80530F]" />
               <span>Full Product Range</span>
             </div>
@@ -276,8 +276,8 @@ export function ProductCatalogSection({ onInquire }: ProductCatalogProps) {
               onClick={() => setFilterMode("all")}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                 filterMode === "all"
-                  ? "bg-[#022413] text-[#F6EFE7]"
-                  : "text-[#072C1A] hover:bg-[#EDE5DF]"
+                  ? "bg-[#022413] text-[#F1CA7F]"
+                  : "text-[#022413] hover:bg-[#FAF9F6]"
               }`}
             >
               All Types
@@ -286,8 +286,8 @@ export function ProductCatalogSection({ onInquire }: ProductCatalogProps) {
               onClick={() => setFilterMode("b2c")}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                 filterMode === "b2c"
-                  ? "bg-[#022413] text-[#F6EFE7]"
-                  : "text-[#072C1A] hover:bg-[#EDE5DF]"
+                  ? "bg-[#022413] text-[#F1CA7F]"
+                  : "text-[#022413] hover:bg-[#FAF9F6]"
               }`}
             >
               Consumer Packs (B2C)
@@ -296,8 +296,8 @@ export function ProductCatalogSection({ onInquire }: ProductCatalogProps) {
               onClick={() => setFilterMode("b2b")}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                 filterMode === "b2b"
-                  ? "bg-[#022413] text-[#F6EFE7]"
-                  : "text-[#072C1A] hover:bg-[#EDE5DF]"
+                  ? "bg-[#022413] text-[#F1CA7F]"
+                  : "text-[#022413] hover:bg-[#FAF9F6]"
               }`}
             >
               Bulk / HoReCa (B2B)
@@ -314,7 +314,7 @@ export function ProductCatalogSection({ onInquire }: ProductCatalogProps) {
               className={`whitespace-nowrap px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all shrink-0 ${
                 selectedCategory === cat.id
                   ? "bg-[#022413] text-[#F1CA7F] shadow-md border border-[#CA9234]"
-                  : "bg-white text-[#022413] border border-[#CA9234]/30 hover:border-[#CA9234] hover:bg-[#F6EFE7]"
+                  : "bg-white text-[#022413] border border-[#CA9234]/30 hover:border-[#CA9234] hover:bg-[#FAF9F6] shadow-xs"
               }`}
             >
               {cat.label}
@@ -327,17 +327,18 @@ export function ProductCatalogSection({ onInquire }: ProductCatalogProps) {
           {filteredProducts.map((prod) => (
             <div
               key={prod.id}
-              className="rounded-2xl bg-white border border-[#CA9234]/30 shadow-md hover:shadow-xl transition-all flex flex-col justify-between overflow-hidden group"
+              className="rounded-2xl bg-white border border-[#CA9234]/25 shadow-md hover:shadow-xl hover:border-[#CA9234] transition-all flex flex-col justify-between overflow-hidden group"
             >
               {/* Product Image Header */}
-              <div className="relative w-full h-60 bg-[#022413] overflow-hidden flex items-center justify-center">
+              <div className="relative w-full h-60 bg-[#F5F2EB] overflow-hidden flex items-center justify-center">
                 <Image
                   src={prod.image}
                   alt={prod.name}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
                 {/* Popular or Category Tag */}
                 <div className="absolute top-3 left-3 flex gap-2">
@@ -346,7 +347,7 @@ export function ProductCatalogSection({ onInquire }: ProductCatalogProps) {
                       Bestseller
                     </span>
                   )}
-                  <span className="text-[10px] font-bold px-2 py-1 rounded-full bg-[#022413]/80 text-[#F1CA7F] backdrop-blur-sm border border-[#CA9234]/40">
+                  <span className="text-[10px] font-bold px-2 py-1 rounded-full bg-white/95 text-[#022413] backdrop-blur-sm border border-[#CA9234]/40 shadow-xs">
                     {prod.category.toUpperCase()}
                   </span>
                 </div>
@@ -367,22 +368,22 @@ export function ProductCatalogSection({ onInquire }: ProductCatalogProps) {
                     </h3>
                   </div>
                   {prod.hindiName && (
-                    <p className="text-xs font-medium text-[#6C6831] mb-2">{prod.hindiName}</p>
+                    <p className="text-xs font-semibold text-[#6C6831] mb-2">{prod.hindiName}</p>
                   )}
-                  <p className="text-xs text-[#072C1A]/80 leading-relaxed mb-4">
+                  <p className="text-xs text-[#143323]/80 leading-relaxed mb-4">
                     {prod.description}
                   </p>
 
                   {/* Highlights (Dual B2C and B2B) */}
                   <div className="space-y-1.5 mb-4 text-[11px]">
                     {(filterMode === "all" || filterMode === "b2c") && (
-                      <div className="flex items-center gap-1.5 text-[#022413] font-medium bg-[#F6EFE7] px-2.5 py-1 rounded-md">
+                      <div className="flex items-center gap-1.5 text-[#022413] font-medium bg-[#FAF9F6] border border-[#CA9234]/20 px-2.5 py-1 rounded-md">
                         <CheckCircleIcon className="w-3.5 h-3.5 text-[#CA9234] shrink-0" />
                         <span><strong>B2C:</strong> {prod.b2cHighlight}</span>
                       </div>
                     )}
                     {(filterMode === "all" || filterMode === "b2b") && (
-                      <div className="flex items-center gap-1.5 text-[#80530F] font-semibold bg-[#CA9234]/10 px-2.5 py-1 rounded-md">
+                      <div className="flex items-center gap-1.5 text-[#80530F] font-semibold bg-[#CA9234]/15 border border-[#CA9234]/30 px-2.5 py-1 rounded-md">
                         <PackageIcon className="w-3.5 h-3.5 text-[#80530F] shrink-0" />
                         <span><strong>B2B Trade:</strong> {prod.b2bHighlight}</span>
                       </div>
@@ -398,7 +399,7 @@ export function ProductCatalogSection({ onInquire }: ProductCatalogProps) {
                       {prod.packSizes.map((size) => (
                         <span
                           key={size}
-                          className="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#EDE5DF] text-[#022413] border border-[#CA9234]/30"
+                          className="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#FAF9F6] text-[#022413] border border-[#CA9234]/30"
                         >
                           {size}
                         </span>
@@ -410,10 +411,10 @@ export function ProductCatalogSection({ onInquire }: ProductCatalogProps) {
                 {/* Card Action */}
                 <button
                   onClick={() => onInquire(prod.name)}
-                  className="w-full mt-2 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#022413] text-[#F6EFE7] hover:bg-[#072C1A] text-xs font-bold transition-all shadow-sm group-hover:border-[#CA9234] border border-transparent"
+                  className="w-full mt-2 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-white hover:bg-gold-foil text-[#022413] border-2 border-[#CA9234]/50 hover:border-[#CA9234] text-xs font-bold transition-all shadow-sm"
                 >
                   <span>Inquire Wholesale / Samples</span>
-                  <ArrowRightIcon className="w-3.5 h-3.5 text-[#F1CA7F]" />
+                  <ArrowRightIcon className="w-3.5 h-3.5 text-[#CA9234]" />
                 </button>
               </div>
             </div>

@@ -26,7 +26,7 @@ export default function HomePage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col bg-[var(--cream-200)] text-[var(--green-900)]">
+    <main className="min-h-screen flex flex-col bg-white text-[var(--green-900)]">
       {/* 1. Sticky Navigation Header */}
       <Navbar
         onSelectAudience={(aud) => {
