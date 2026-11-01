@@ -1,0 +1,411 @@
+/* DC Foods Hub - Stylesheet copied directly from dc-foods-hub.lovable.app */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+.hub-root {
+  --background: oklch(100% 0 0);
+  --foreground: oklch(19% .005 150);
+  --primary: oklch(34% .085 153);
+  --primary-foreground: oklch(100% 0 0);
+  --secondary: oklch(70% .18 59);
+  --secondary-foreground: oklch(100% 0 0);
+  --muted: oklch(98% .009 99);
+  --muted-foreground: oklch(51% .005 150);
+  --accent: oklch(52% .15 143);
+  --accent-foreground: oklch(100% 0 0);
+  --card: oklch(100% 0 0);
+  --border: oklch(90% .006 150);
+  --destructive: oklch(54% .19 25);
+  --hero-shade: linear-gradient(90deg, oklch(22% .04 150 / 0.65), transparent);
+  --shadow-soft: 0 4px 18px oklch(20% .03 155 / 0.08);
+  --font-display: "Open Sans", sans-serif;
+  --font-sans: "Open Sans", sans-serif;
+  
+  font-family: var(--font-sans);
+  color: var(--foreground);
+  background-color: var(--background);
+}
+
+.hub-root * {
+  box-sizing: border-box;
+}
+
+.container-site {
+  width: min(100% - 48px, 1120px);
+  margin-inline: auto;
+}
+@media (max-width: 768px) {
+  .container-site {
+    width: min(100% - 32px, 1120px);
+  }
+}
+
+.section-space {
+  padding-block: 64px;
+}
+@media (max-width: 768px) {
+  .section-space {
+    padding-block: 60px;
+  }
+}
+@media (max-width: 640px) {
+  .section-space {
+    padding-block: 42px;
+  }
+}
+
+.display {
+  font-family: var(--font-display);
+  letter-spacing: 0;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.eyebrow {
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* Header & Nav */
+.site-header {
+  z-index: 50;
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+}
+.site-header-inner {
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  min-height: 70px;
+  display: flex;
+}
+@media (max-width: 640px) {
+  .site-header-inner {
+    min-height: 66px;
+  }
+}
+
+.site-logo {
+  flex-shrink: 0;
+  align-items: center;
+  gap: 10px;
+  display: flex;
+  text-decoration: none;
+}
+.site-logo img {
+  object-fit: contain;
+  width: 58px;
+  height: 58px;
+}
+@media (max-width: 640px) {
+  .site-logo img {
+    width: 50px;
+    height: 50px;
+  }
+}
+.site-logo strong {
+  letter-spacing: 0;
+  color: var(--primary);
+  font-size: 16px;
+}
+.site-logo small {
+  letter-spacing: 0;
+  color: var(--muted-foreground);
+  font-size: 9px;
+  display: block;
+}
+
+.site-nav {
+  align-items: center;
+  gap: 23px;
+  display: flex;
+}
+@media (max-width: 1023px) {
+  .site-nav {
+    display: none;
+  }
+}
+.site-nav a, .site-nav summary {
+  color: var(--muted-foreground);
+  cursor: pointer;
+  font-size: 12px;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.site-nav a:hover, .site-nav a.active, .site-nav summary:hover {
+  color: var(--accent);
+}
+.site-nav details {
+  position: relative;
+}
+.site-nav summary {
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  display: flex;
+}
+.site-nav summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-dropdown {
+  background: var(--background);
+  border: 1px solid var(--border);
+  width: 210px;
+  box-shadow: var(--shadow-soft);
+  gap: 4px;
+  padding: 10px;
+  display: grid;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  z-index: 60;
+}
+.nav-dropdown a {
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.nav-dropdown a:hover {
+  background: var(--muted);
+}
+
+/* Trade Hero */
+.trade-hero {
+  background: var(--muted);
+  height: 405px;
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 640px) {
+  .trade-hero {
+    height: 445px;
+  }
+}
+.trade-hero > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+@media (max-width: 640px) {
+  .trade-hero > img {
+    object-position: 65% center;
+  }
+}
+.inner-hero-shade {
+  background: linear-gradient(90deg, oklch(22% .04 150 / 0.75), transparent);
+}
+.trade-hero-content {
+  align-items: center;
+  height: 100%;
+  padding-bottom: 20px;
+  display: flex;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 640px) {
+  .trade-hero-content {
+    align-items: flex-start;
+    padding-top: 28px;
+  }
+}
+.trade-hero-copy {
+  text-align: center;
+  width: 52%;
+  max-width: 550px;
+}
+@media (max-width: 640px) {
+  .trade-hero-copy {
+    width: 100%;
+  }
+}
+.trade-hero-copy h1 {
+  color: var(--primary);
+  letter-spacing: 0;
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.trade-hero-copy.photo-copy h1 {
+  color: var(--primary-foreground);
+}
+.trade-hero-ribbon {
+  background: var(--card);
+  color: var(--secondary);
+  padding: 9px 35px;
+  font-size: 30px;
+  font-weight: 800;
+  display: inline-block;
+  transform: rotate(-3deg);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+@media (max-width: 640px) {
+  .trade-hero-ribbon {
+    padding: 7px 30px;
+    font-size: 24px;
+  }
+}
+.trade-hero-offer {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  margin: 5px 0 12px;
+  padding: 12px 20px;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.15;
+  display: block;
+}
+@media (max-width: 640px) {
+  .trade-hero-offer {
+    max-width: 330px;
+    margin-inline: auto;
+    font-size: 25px;
+  }
+}
+.trade-hero-copy p {
+  color: var(--primary);
+  max-width: 440px;
+  margin: 0 auto 16px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+@media (max-width: 640px) {
+  .trade-hero-copy p {
+    background: var(--muted);
+    max-width: 305px;
+    padding: 6px 10px;
+  }
+}
+.trade-hero-copy .hero-photo-copy {
+  color: var(--primary-foreground) !important;
+}
+
+.banner-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 0;
+  background: var(--muted);
+}
+
+/* Stats */
+.trade-stats {
+  background: var(--muted);
+  padding: 30px 0 34px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+@media (max-width: 640px) {
+  .trade-stats {
+    padding: 20px 0 25px;
+  }
+}
+.trade-stats strong {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--foreground);
+  display: block;
+}
+@media (max-width: 640px) {
+  .trade-stats strong {
+    font-size: 23px;
+  }
+}
+.trade-stats span {
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  display: block;
+}
+
+/* Titles and typography */
+.trade-title {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--foreground);
+}
+.trade-title:before {
+  content: "▣";
+  color: var(--accent);
+  vertical-align: middle;
+  margin-right: 10px;
+  font-size: 14px;
+}
+@media (max-width: 640px) {
+  .trade-title {
+    font-size: 25px;
+  }
+}
+
+.trade-body {
+  color: var(--muted-foreground);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* Product Card */
+.trade-product {
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 5px;
+  flex-direction: column;
+  display: flex;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.trade-product:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-2px);
+}
+.trade-product img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  width: 100%;
+}
+.trade-product h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--foreground);
+}
+.trade-product p {
+  color: var(--muted-foreground);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* Footer */
+.trade-footer {
+  background: var(--foreground);
+  color: var(--primary-foreground);
+  padding-top: 52px;
+}
+.trade-footer h3 {
+  margin-bottom: 18px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-foreground);
+}
+.trade-footer p, .trade-footer a {
+  font-size: 12px;
+  line-height: 1.9;
+  color: color-mix(in oklab, var(--primary-foreground) 80%, transparent);
+  text-decoration: none;
+}
+.trade-footer a:hover {
+  color: var(--secondary);
+}
+.trade-footer-bottom {
+  border-top: 1px solid color-mix(in oklab, var(--primary-foreground) 20%, transparent);
+  margin-top: 40px;
+  padding: 18px 0;
+  font-size: 12px;
+}
