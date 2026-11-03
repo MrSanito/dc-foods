@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "./hub.css";
@@ -15,76 +15,113 @@ const COMPANY = {
   whatsappNumber: "917265907267",
 };
 
+const HERO_SLIDES = [
+  {
+    image: ASSETS.hub.tradeSpicesBanner,
+    ribbon: "Indian Spices",
+    offer: "Spices, Powders & Food Essentials",
+    description: "From Vadodara to your business — bulk supply, distribution & private label.",
+    category: "spices",
+    alt: "Bowls of red chilli, turmeric and whole Indian spices",
+  },
+  {
+    image: ASSETS.hub.products.fruitRange,
+    ribbon: "Dehydrated Fruits",
+    offer: "Fruit Ingredients & Everyday Flavour",
+    description: "Explore our dehydrated fruit range for food businesses and retail enquiries.",
+    category: "fruits",
+    alt: "Dehydrated fruit selection",
+  },
+  {
+    image: ASSETS.hub.products.dairyRange,
+    ribbon: "Dairy & Ghee",
+    offer: "Dairy Essentials For Your Business",
+    description: "Discover dairy and ghee for homes, shelves and professional kitchens.",
+    category: "dairy",
+    alt: "Dairy and ghee selection",
+  },
+];
+
 export default function DCFoodsHubPage() {
+  const [activeSlide, setActiveSlide] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [tradeDropdownOpen, setTradeDropdownOpen] = useState(false);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const slide = HERO_SLIDES[activeSlide];
+
   return (
     <div className="hub-root min-h-screen bg-background text-foreground antialiased">
-      {/* HEADER / NAVIGATION */}
+      {/* HEADER */}
       <header className="site-header">
         <div className="container-site site-header-inner">
           <Link href="/new-page" className="site-logo active" aria-label="DC Foods home">
-            <Image
-              src={ASSETS.hub.logo}
-              alt="DC Foods logo"
-              width={58}
-              height={58}
-              priority
-              className="size-[58px] object-contain"
-            />
+            <Image src={ASSETS.hub.logo} alt="DC Foods logo" width={58} height={58} priority className="size-[58px] object-contain" />
             <span>
               <strong>DC FOODS</strong>
               <small>&amp; BEVERAGES PRIVATE LIMITED</small>
             </span>
           </Link>
-
           <nav className="site-nav" aria-label="Main navigation">
             <Link href="/new-page" className="font-semibold text-accent">Home</Link>
             <a href="#products">Products</a>
             <a href="#certificates">Certifications</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
-            <a href="#faqs">FAQs</a>
-            <details className="relative" open={tradeDropdownOpen} onToggle={(e) => setTradeDropdownOpen((e.target as HTMLDetailsElement).open)}>
-              <summary className="flex items-center gap-1 cursor-pointer font-medium text-muted-foreground hover:text-accent">
-                Trade
-              </summary>
-              <div className="nav-dropdown">
-                <a href="#prices" className="hover:text-accent p-2 text-xs">Price List</a>
-                <a href="#business" className="hover:text-accent p-2 text-xs">Export &amp; Quality</a>
-                <a href="#business" className="hover:text-accent p-2 text-xs">Private Label</a>
-                <a href="#business" className="hover:text-accent p-2 text-xs">Distributors</a>
-                <a href="#enquiry" className="hover:text-accent p-2 text-xs">Request a Quote</a>
-              </div>
-            </details>
             <a href={ASSETS.hub.companyProfilePdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 rounded bg-muted px-3 py-1.5 text-xs font-semibold text-primary hover:bg-accent hover:text-white transition">
               Download Brochure
             </a>
           </nav>
-
-          <button className="inline-flex min-h-11 cursor-pointer items-center justify-center rounded-sm p-2 text-foreground hover:bg-muted lg:hidden" aria-label="Toggle menu" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
-          </button>
         </div>
-
-        {mobileMenuOpen && (
-          <div className="border-b border-border bg-background p-4 lg:hidden">
-            <div className="flex flex-col gap-3">
-              <Link href="/new-page" className="font-semibold text-accent" onClick={() => setMobileMenuOpen(false)}>Home</Link>
-              <a href="#products" className="text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>Products</a>
-              <a href="#certificates" className="text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>Certifications</a>
-              <a href="#about" className="text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>About</a>
-              <a href="#contact" className="text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>Contact</a>
-            </div>
-          </div>
-        )}
       </header>
 
-      <main className="container-site py-12">
-        <h1 className="text-3xl font-bold">DC Foods &amp; Beverages Hub</h1>
-        <p className="mt-2 text-muted-foreground">Scaffolding navigation and layout structure.</p>
-      </main>
+      {/* SECTION 1: HERO CAROUSEL */}
+      <section className="trade-hero relative overflow-hidden" aria-label="DC Foods product highlights">
+        <Image src={slide.image} alt={slide.alt} fill priority className="object-cover transition-opacity duration-700" />
+        {activeSlide > 0 && <div className="inner-hero-shade absolute inset-0 z-1" />}
+        <div className="container-site trade-hero-content relative z-2">
+          <div className={`trade-hero-copy ${activeSlide > 0 ? "photo-copy" : ""}`}>
+            <h1>DC FOODS &amp; BEVERAGES</h1>
+            <span className="trade-hero-ribbon">{slide.ribbon}</span>
+            <h2 className="trade-hero-offer">{slide.offer}</h2>
+            <p className={activeSlide > 0 ? "hero-photo-copy" : ""}>{slide.description}</p>
+            <a href="#enquiry" className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-sm bg-secondary px-10 h-10 text-sm font-bold text-secondary-foreground shadow hover:brightness-110 transition">
+              Enquire Now
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Banner Tab Selector */}
+      <div className="banner-dots flex justify-center gap-2 py-3 bg-muted border-b border-border">
+        {HERO_SLIDES.map((s, idx) => (
+          <button
+            key={s.ribbon}
+            onClick={() => setActiveSlide(idx)}
+            className={`px-3 py-1 text-xs font-bold rounded transition ${
+              activeSlide === idx ? "bg-secondary text-secondary-foreground shadow-sm" : "bg-white text-muted-foreground hover:bg-white/80"
+            }`}
+          >
+            {s.ribbon}
+          </button>
+        ))}
+      </div>
+
+      {/* SECTION 2: TRADE STATS */}
+      <section className="trade-stats" aria-label="DC Foods facts">
+        <div className="container-site grid grid-cols-2 gap-y-6 text-center sm:grid-cols-4">
+          <div><strong>05</strong><span>Product Divisions</span></div>
+          <div><strong>2025</strong><span>Year Incorporated</span></div>
+          <div><strong>Vadodara</strong><span>Gujarat, India</span></div>
+          <div><strong>GST</strong><span>Registered Company</span></div>
+        </div>
+      </section>
     </div>
   );
 }
