@@ -6,21 +6,34 @@ import Link from "next/link";
 import "./hub.css";
 import { ASSETS } from "@/app/assets";
 
+// Company Constants from DC Foods Hub
 const COMPANY = {
   legalName: "DC Foods & Beverages Private Limited",
   displayName: "DC Foods & Beverages",
   shortName: "DC Foods",
   tagline: "Quality Products. Strong Margins. Growing Market.",
+  incorporated: "17 June 2025",
+  cin: "U10501GJ2025PTC164206",
+  udyam: "UDYAM-GJ-24-0195560",
+  dpiit: "DIPP275511",
+  gstin: "24AALCD7943D1ZM",
+  fssai: "10725999000185",
+  factoryAddress:
+    "Shah Industrial Park 6, Gajedra, Near Waghodiya GIDC, Alva Village Road, Vadodara, Gujarat, India",
+  registeredOffice:
+    "D-502, Rudraksh Heights, Kapurai Road, Opp. M M Vora Show Room, Soma Talav, Vadodara, Gujarat 390025, India",
   phone: "+91 72659 07267",
   whatsappNumber: "917265907267",
 };
 
+// Hero Carousel Slides
 const HERO_SLIDES = [
   {
     image: ASSETS.hub.tradeSpicesBanner,
     ribbon: "Indian Spices",
     offer: "Spices, Powders & Food Essentials",
-    description: "From Vadodara to your business — bulk supply, distribution & private label.",
+    description:
+      "From Vadodara to your business — bulk supply, distribution & private label.",
     category: "spices",
     alt: "Bowls of red chilli, turmeric and whole Indian spices",
   },
@@ -28,7 +41,8 @@ const HERO_SLIDES = [
     image: ASSETS.hub.products.fruitRange,
     ribbon: "Dehydrated Fruits",
     offer: "Fruit Ingredients & Everyday Flavour",
-    description: "Explore our dehydrated fruit range for food businesses and retail enquiries.",
+    description:
+      "Explore our dehydrated fruit range for food businesses and retail enquiries.",
     category: "fruits",
     alt: "Dehydrated fruit selection",
   },
@@ -36,12 +50,14 @@ const HERO_SLIDES = [
     image: ASSETS.hub.products.dairyRange,
     ribbon: "Dairy & Ghee",
     offer: "Dairy Essentials For Your Business",
-    description: "Discover dairy and ghee for homes, shelves and professional kitchens.",
+    description:
+      "Discover dairy and ghee for homes, shelves and professional kitchens.",
     category: "dairy",
     alt: "Dairy and ghee selection",
   },
 ];
 
+// Product Divisions
 const DIVISIONS = [
   { slug: "all", title: "All Products" },
   { slug: "spices", title: "Spices & Masalas" },
@@ -51,21 +67,182 @@ const DIVISIONS = [
   { slug: "dairy", title: "Dairy & Ghee" },
 ];
 
+// Product Catalog
 const PRODUCTS = [
-  { name: "Red Chilli Powder", category: "spices", detail: "A bold red spice for everyday cooking and commercial kitchens.", image: ASSETS.hub.products.chilli },
-  { name: "Turmeric Powder", category: "spices", detail: "Golden colour and warm, earthy flavour.", image: ASSETS.hub.products.turmeric },
-  { name: "Coriander Powder", category: "spices", detail: "A fragrant staple for savoury blends.", image: ASSETS.hub.products.coriander },
-  { name: "Garam Masala", category: "spices", detail: "A familiar blend for richly layered dishes.", image: ASSETS.hub.products.garamMasala },
-  { name: "Dehydrated Onion Powder", category: "onion", detail: "Convenient onion flavour for seasoning and food preparation.", image: ASSETS.hub.products.onionRange },
-  { name: "Guar Gum Powder", category: "guar", detail: "Available for food and industrial enquiries.", image: ASSETS.hub.products.guarGum },
-  { name: "Dehydrated Mango", category: "fruits", detail: "A bright fruit option for snacking and ingredient use.", image: ASSETS.hub.products.mango },
-  { name: "Desi Ghee", category: "dairy", detail: "A dairy favourite for homes and professional kitchens.", image: ASSETS.hub.products.ghee },
+  {
+    name: "Red Chilli Powder",
+    category: "spices",
+    detail: "A bold red spice for everyday cooking and commercial kitchens.",
+    image: ASSETS.hub.products.chilli,
+  },
+  {
+    name: "Turmeric Powder",
+    category: "spices",
+    detail: "Golden colour and warm, earthy flavour.",
+    image: ASSETS.hub.products.turmeric,
+  },
+  {
+    name: "Coriander Powder",
+    category: "spices",
+    detail: "A fragrant staple for savoury blends.",
+    image: ASSETS.hub.products.coriander,
+  },
+  {
+    name: "Garam Masala",
+    category: "spices",
+    detail: "A familiar blend for richly layered dishes.",
+    image: ASSETS.hub.products.garamMasala,
+  },
+  {
+    name: "Dehydrated Onion Powder",
+    category: "onion",
+    detail: "Convenient onion flavour for seasoning and food preparation.",
+    image: ASSETS.hub.products.onionRange,
+  },
+  {
+    name: "Guar Gum Powder",
+    category: "guar",
+    detail: "Available for food and industrial enquiries.",
+    image: ASSETS.hub.products.guarGum,
+  },
+  {
+    name: "Dehydrated Mango",
+    category: "fruits",
+    detail: "A bright fruit option for snacking and ingredient use.",
+    image: ASSETS.hub.products.mango,
+  },
+  {
+    name: "Desi Ghee",
+    category: "dairy",
+    detail: "A dairy favourite for homes and professional kitchens.",
+    image: ASSETS.hub.products.ghee,
+  },
+  {
+    name: "Dehydrated Orange Slices",
+    category: "fruits",
+    detail: "Citrus flavour for beverages, snacking and ingredient use.",
+    image: ASSETS.hub.products.orangeSlices,
+  },
+  {
+    name: "Dehydrated Apple Crisps",
+    category: "fruits",
+    detail: "Apple slices for snacks, cereal blends and food preparation.",
+    image: ASSETS.hub.products.appleCrisps,
+  },
+  {
+    name: "Dehydrated Banana Slices",
+    category: "fruits",
+    detail: "Banana flavour for snacks and ingredient blends.",
+    image: ASSETS.hub.products.bananaSlices,
+  },
+  {
+    name: "Banana Powder",
+    category: "fruits",
+    detail: "A fruit ingredient for baking and beverage enquiries.",
+    image: ASSETS.hub.products.bananaPowder,
+  },
+  {
+    name: "Sev Usal Masala",
+    category: "spices",
+    detail: "A savoury masala for the familiar flavours of sev usal.",
+    image: ASSETS.hub.products.sevUsalMasala,
+  },
+  {
+    name: "Tea Masala",
+    category: "spices",
+    detail: "An aromatic spice blend for a warming cup of chai.",
+    image: ASSETS.hub.products.teaMasala,
+  },
+  {
+    name: "Guar Gum Powder — Industrial Grade",
+    category: "guar",
+    detail: "For industrial specification enquiries. Not for household cooking.",
+    image: ASSETS.hub.products.guarGum,
+  },
+  {
+    name: "Paneer",
+    category: "dairy",
+    detail: "A versatile dairy ingredient for home and professional kitchens.",
+    image: ASSETS.hub.products.paneer,
+  },
+  {
+    name: "Milk",
+    category: "dairy",
+    detail: "Dairy supply enquiries for households and food businesses.",
+    image: ASSETS.hub.products.milk,
+  },
+];
+
+// Special Powder Select Cards for Enquiry
+const ENQUIRY_SELECT_ITEMS = [
+  { name: "Dried Pineapple", img: ASSETS.hub.products.driedPineapple },
+  { name: "Dried Strawberry", img: ASSETS.hub.products.driedStrawberry },
+  { name: "Carrot Powder", img: ASSETS.hub.products.carrotPowder },
+  { name: "Tomato Powder", img: ASSETS.hub.products.tomatoPowder },
+  { name: "Beetroot Powder", img: ASSETS.hub.products.beetrootPowder },
+  { name: "Amla Powder", img: ASSETS.hub.products.amlaPowder },
+];
+
+// Today's Live Rates Data (from official catalogue)
+const PRICE_LIST_HIGHLIGHTS = [
+  { product: "Nizamabad Turmeric", grade: "Good Grade", price: 210, unit: "KG" },
+  { product: "Nizamabad Turmeric", grade: "FAQ Grade", price: 200, unit: "KG" },
+  { product: "Maharashtra Turmeric", grade: "Good Grade", price: 220, unit: "KG" },
+  { product: "Maharashtra Turmeric", grade: "FAQ Grade", price: 195, unit: "KG" },
+  { product: "Maharashtra Turmeric", grade: "Bulb Grade", price: 240, unit: "KG" },
+  { product: "Kaddapa Turmeric", grade: "Good Grade", price: 210, unit: "KG" },
+];
+
+// FAQ Data
+const FAQS = [
+  {
+    q: "What products does DC Foods offer?",
+    a: "Our range includes spices and masalas, dehydrated onion powder, guar gum powder, dehydrated fruits, and dairy products.",
+  },
+  {
+    q: "Can I enquire about bulk quantities?",
+    a: "Yes. Share your product, quantity, packaging preference and destination. Availability, specifications and pricing are discussed for each enquiry.",
+  },
+  {
+    q: "Do you offer private-label opportunities?",
+    a: "We welcome private-label enquiries. Tell us about your brand, products and packaging requirements so we can discuss possibilities.",
+  },
+  {
+    q: "How can I become a distributor?",
+    a: "Contact us with your business details and territory, or send a distribution enquiry through our form.",
+  },
+  {
+    q: "Where is DC Foods based?",
+    a: "DC Foods & Beverages Private Limited is based in Vadodara, Gujarat, India, and was incorporated on 17 June 2025.",
+  },
 ];
 
 export default function DCFoodsHubPage() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeCategory, setActiveCategory] = useState("all");
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [tradeDropdownOpen, setTradeDropdownOpen] = useState(false);
 
+  // Form State
+  const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
+  const [selectedProductCard, setSelectedProductCard] = useState<string>("");
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    businessName: "",
+    phone: "",
+    email: "",
+    location: "",
+    quantity: "",
+    message: "",
+  });
+
+  // Price Modal State
+  const [showPriceModal, setShowPriceModal] = useState(false);
+  const [showCertModal, setShowCertModal] = useState(false);
+
+  // Auto rotate hero slides every 6s
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % HERO_SLIDES.length);
@@ -74,95 +251,1155 @@ export default function DCFoodsHubPage() {
   }, []);
 
   const slide = HERO_SLIDES[activeSlide];
-  const filteredProducts = activeCategory === "all" ? PRODUCTS : PRODUCTS.filter((p) => p.category === activeCategory);
+
+  const filteredProducts =
+    activeCategory === "all"
+      ? PRODUCTS
+      : PRODUCTS.filter((p) => p.category === activeCategory);
+
+  const toggleInterest = (val: string) => {
+    setSelectedInterests((prev) =>
+      prev.includes(val) ? prev.filter((i) => i !== val) : [...prev, val]
+    );
+  };
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormSubmitted(true);
+  };
+
+  const openWhatsApp = (customMsg?: string) => {
+    const defaultText = `Hello DC Foods, I would like to enquire about your products.`;
+    const text = encodeURIComponent(customMsg || defaultText);
+    window.open(`https://wa.me/${COMPANY.whatsappNumber}?text=${text}`, "_blank");
+  };
 
   return (
-    <div className="hub-root min-h-screen bg-background text-foreground antialiased">
+    <div className="hub-root min-h-screen bg-background text-foreground antialiased selection:bg-accent selection:text-white">
+      {/* Schema.org Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: COMPANY.shortName,
+            legalName: COMPANY.legalName,
+            taxID: COMPANY.gstin,
+            telephone: COMPANY.phone,
+            url: "https://dc-foods-hub.lovable.app",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: COMPANY.registeredOffice,
+              addressLocality: "Vadodara",
+              addressRegion: "Gujarat",
+              addressCountry: "IN",
+            },
+          }),
+        }}
+      />
+
+      {/* HEADER / NAVIGATION */}
       <header className="site-header">
         <div className="container-site site-header-inner">
-          <Link href="/new-page" className="site-logo active">
-            <Image src={ASSETS.hub.logo} alt="DC Foods logo" width={58} height={58} priority className="size-[58px] object-contain" />
-            <span><strong>DC FOODS</strong><small>&amp; BEVERAGES PRIVATE LIMITED</small></span>
+          <Link
+            href="/new-page"
+            className="site-logo active"
+            aria-label="DC Foods home"
+          >
+            <Image
+              src={ASSETS.hub.logo}
+              alt="DC Foods logo"
+              width={58}
+              height={58}
+              priority
+              className="size-[58px] object-contain"
+            />
+            <span>
+              <strong>DC FOODS</strong>
+              <small>&amp; BEVERAGES PRIVATE LIMITED</small>
+            </span>
           </Link>
-          <nav className="site-nav">
-            <Link href="/new-page" className="font-semibold text-accent">Home</Link>
+
+          {/* Desktop Nav */}
+          <nav className="site-nav" aria-label="Main navigation">
+            <Link href="/new-page" className="font-semibold text-accent">
+              Home
+            </Link>
             <a href="#products">Products</a>
+            <a href="#certificates">Certifications</a>
             <a href="#about">About</a>
-            <a href={ASSETS.hub.companyProfilePdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 rounded bg-muted px-3 py-1.5 text-xs font-semibold text-primary">Download Brochure</a>
+            <a href="#contact">Contact</a>
+            <a href="#faqs">FAQs</a>
+
+            {/* Trade Dropdown */}
+            <details
+              className="relative"
+              open={tradeDropdownOpen}
+              onToggle={(e) =>
+                setTradeDropdownOpen((e.target as HTMLDetailsElement).open)
+              }
+            >
+              <summary className="flex items-center gap-1 cursor-pointer font-medium text-muted-foreground hover:text-accent">
+                Trade
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-chevron-down"
+                >
+                  <path d="m6 9 6 6 6-6"></path>
+                </svg>
+              </summary>
+              <div className="nav-dropdown">
+                <button
+                  type="button"
+                  onClick={() => setShowPriceModal(true)}
+                  className="text-left hover:text-accent p-2 text-xs"
+                >
+                  Price List
+                </button>
+                <a href="#business" className="hover:text-accent p-2 text-xs">
+                  Export &amp; Quality
+                </a>
+                <a href="#business" className="hover:text-accent p-2 text-xs">
+                  Private Label
+                </a>
+                <a href="#business" className="hover:text-accent p-2 text-xs">
+                  Distributors
+                </a>
+                <a href="#enquiry" className="hover:text-accent p-2 text-xs">
+                  Request a Quote
+                </a>
+              </div>
+            </details>
+
+            <a
+              href={ASSETS.hub.companyProfilePdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 rounded bg-muted px-3 py-1.5 text-xs font-semibold text-primary hover:bg-accent hover:text-white transition"
+            >
+              Download Brochure
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M12 15V3" />
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <path d="m7 10 5 5 5-5" />
+              </svg>
+            </a>
           </nav>
+
+          {/* Mobile Menu Hamburger */}
+          <button
+            className="inline-flex min-h-11 cursor-pointer items-center justify-center rounded-sm p-2 text-foreground hover:bg-muted lg:hidden"
+            aria-label="Toggle menu"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              {mobileMenuOpen ? (
+                <>
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </>
+              ) : (
+                <>
+                  <line x1="4" x2="20" y1="12" y2="12"></line>
+                  <line x1="4" x2="20" y1="6" y2="6"></line>
+                  <line x1="4" x2="20" y1="18" y2="18"></line>
+                </>
+              )}
+            </svg>
+          </button>
         </div>
+
+        {/* Mobile Dropdown Menu */}
+        {mobileMenuOpen && (
+          <div className="border-b border-border bg-background p-4 lg:hidden animate-in fade-in slide-in-from-top-2">
+            <div className="flex flex-col gap-3">
+              <Link
+                href="/new-page"
+                className="font-semibold text-accent"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <a
+                href="#products"
+                className="text-sm font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Products
+              </a>
+              <a
+                href="#certificates"
+                className="text-sm font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Certifications
+              </a>
+              <a
+                href="#about"
+                className="text-sm font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                About
+              </a>
+              <a
+                href="#contact"
+                className="text-sm font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </a>
+              <a
+                href="#faqs"
+                className="text-sm font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                FAQs
+              </a>
+              <hr className="my-1 border-border" />
+              <button
+                type="button"
+                className="text-left text-sm font-medium text-primary"
+                onClick={() => {
+                  setShowPriceModal(true);
+                  setMobileMenuOpen(false);
+                }}
+              >
+                Live Price List
+              </button>
+              <a
+                href={ASSETS.hub.companyProfilePdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded bg-primary py-2 text-xs font-bold text-white"
+              >
+                Download Company Brochure (PDF)
+              </a>
+            </div>
+          </div>
+        )}
       </header>
 
-      {/* HERO */}
-      <section className="trade-hero relative overflow-hidden">
-        <Image src={slide.image} alt={slide.alt} fill priority className="object-cover transition-opacity duration-700" />
+      {/* SECTION 1: HERO CAROUSEL */}
+      <section className="trade-hero relative overflow-hidden" aria-label="DC Foods product highlights">
+        <Image
+          src={slide.image}
+          alt={slide.alt}
+          fill
+          priority
+          className="object-cover transition-opacity duration-700"
+        />
+        {activeSlide > 0 && <div className="inner-hero-shade absolute inset-0 z-1" />}
+
         <div className="container-site trade-hero-content relative z-2">
-          <div className="trade-hero-copy">
+          <div className={`trade-hero-copy ${activeSlide > 0 ? "photo-copy" : ""}`}>
             <h1>DC FOODS &amp; BEVERAGES</h1>
             <span className="trade-hero-ribbon">{slide.ribbon}</span>
             <h2 className="trade-hero-offer">{slide.offer}</h2>
-            <p>{slide.description}</p>
+            <p className={activeSlide > 0 ? "hero-photo-copy" : ""}>
+              {slide.description}
+            </p>
+            <a
+              href="#enquiry"
+              className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-sm bg-secondary px-10 h-10 text-sm font-bold text-secondary-foreground shadow hover:brightness-110 transition"
+            >
+              Enquire Now
+            </a>
           </div>
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="trade-stats">
+      {/* Banner Tab Selector */}
+      <div className="banner-dots flex justify-center gap-2 py-3 bg-muted border-b border-border">
+        {HERO_SLIDES.map((s, idx) => (
+          <button
+            key={s.ribbon}
+            onClick={() => setActiveSlide(idx)}
+            className={`px-3 py-1 text-xs font-bold rounded transition ${
+              activeSlide === idx
+                ? "bg-secondary text-secondary-foreground shadow-sm"
+                : "bg-white text-muted-foreground hover:bg-white/80"
+            }`}
+          >
+            {s.ribbon}
+          </button>
+        ))}
+      </div>
+
+      {/* SECTION 2: TRADE STATS */}
+      <section className="trade-stats" aria-label="DC Foods facts">
         <div className="container-site grid grid-cols-2 gap-y-6 text-center sm:grid-cols-4">
-          <div><strong>05</strong><span>Product Divisions</span></div>
-          <div><strong>2025</strong><span>Year Incorporated</span></div>
-          <div><strong>Vadodara</strong><span>Gujarat, India</span></div>
-          <div><strong>GST</strong><span>Registered Company</span></div>
+          <div>
+            <strong>05</strong>
+            <span>Product Divisions</span>
+          </div>
+          <div>
+            <strong>2025</strong>
+            <span>Year Incorporated</span>
+          </div>
+          <div>
+            <strong>Vadodara</strong>
+            <span>Gujarat, India</span>
+          </div>
+          <div>
+            <strong>GST</strong>
+            <span>Registered Company</span>
+          </div>
         </div>
       </section>
 
-      {/* WHY DC FOODS */}
+      {/* SECTION 3: WHY DC FOODS? */}
       <section id="about" className="section-space">
         <div className="container-site grid items-center gap-10 md:grid-cols-2">
           <div>
             <h2 className="trade-title">Why DC Foods?</h2>
             <p className="trade-body mt-6">
-              Founded in 2025, <strong>{COMPANY.legalName}</strong> is a new-generation food manufacturer based in Vadodara, Gujarat.
+              Founded in 2025, <strong>{COMPANY.legalName}</strong> is a
+              new-generation food manufacturer based in Vadodara, Gujarat. Our
+              range brings together spices, powders, dehydrated fruits and dairy
+              for food businesses, distributors and brand owners.
             </p>
             <p className="trade-body mt-4">
-              We focus on useful product variety, clear communication and practical partnerships.
+              We focus on useful product variety, clear communication and practical
+              partnerships. Whether you are sourcing ingredients or developing
+              your own range, we start by understanding what your business needs.
             </p>
+
+            <div className="mt-5 grid gap-3 text-xs sm:grid-cols-2">
+              {[
+                "Five product divisions",
+                "Bulk enquiries welcome",
+                "Private-label discussions",
+                "Direct product support",
+              ].map((item) => (
+                <span key={item} className="flex items-center gap-2 font-medium">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="lucide lucide-check text-accent shrink-0"
+                  >
+                    <path d="M20 6 9 17l-5-5"></path>
+                  </svg>
+                  {item}
+                </span>
+              ))}
+            </div>
+
+            <a
+              href="#business"
+              className="inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-sm bg-primary px-5 text-xs font-bold text-primary-foreground hover:bg-accent transition mt-7"
+            >
+              Read More
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </a>
           </div>
+
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm border border-border shadow-sm">
-            <Image src={ASSETS.hub.foodCollection} alt="DC Foods products" fill className="object-cover" />
+            <Image
+              src={ASSETS.hub.foodCollection}
+              alt="Spices, onion powder, dehydrated fruits and ghee from the DC Foods product range"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
         </div>
       </section>
 
-      {/* PRODUCTS */}
+      {/* SECTION 4: OUR PRODUCTS */}
       <section id="products" className="section-space bg-muted">
         <div className="container-site">
           <div className="text-center">
             <h2 className="trade-title">Our Products</h2>
-            <p className="trade-body mt-3">Explore our food products and ingredients.</p>
+            <p className="trade-body mt-3">
+              Explore our food products and ingredients.
+            </p>
           </div>
+
+          {/* Division Filters */}
           <div className="mt-8 flex flex-wrap justify-center gap-2">
             {DIVISIONS.map((d) => (
-              <button key={d.slug} onClick={() => setActiveCategory(d.slug)} className={`inline-flex min-h-9 items-center justify-center rounded-sm px-4 text-xs font-bold ${activeCategory === d.slug ? "bg-primary text-white" : "border bg-card"}`}>
+              <button
+                key={d.slug}
+                onClick={() => setActiveCategory(d.slug)}
+                className={`inline-flex min-h-9 items-center justify-center rounded-sm px-4 text-xs font-bold tracking-wide transition ${
+                  activeCategory === d.slug
+                    ? "bg-primary text-primary-foreground shadow"
+                    : "border border-border bg-card text-foreground hover:bg-muted"
+                }`}
+              >
                 {d.title}
               </button>
             ))}
           </div>
+
+          {/* Products Grid */}
           <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {filteredProducts.map((prod) => (
+            {filteredProducts.slice(0, 8).map((prod) => (
               <article key={prod.name} className="trade-product">
-                <div className="relative aspect-[4/3] w-full">
-                  <Image src={prod.image} alt={prod.name} fill className="object-cover" />
+                <a
+                  href={`#enquiry`}
+                  onClick={() => {
+                    setFormData((prev) => ({
+                      ...prev,
+                      message: `Enquiry for ${prod.name}`,
+                    }));
+                  }}
+                  className="relative block aspect-[4/3] w-full overflow-hidden bg-muted"
+                >
+                  <Image
+                    src={prod.image}
+                    alt={prod.name}
+                    fill
+                    className="object-cover transition-transform duration-300 hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                </a>
+                <div className="flex flex-1 flex-col p-5">
+                  <h3 className="font-bold text-foreground text-lg">{prod.name}</h3>
+                  <p className="mt-3 flex-1 text-xs text-muted-foreground leading-relaxed">
+                    {prod.detail}
+                  </p>
+                  <a
+                    href="#enquiry"
+                    onClick={() => {
+                      setFormData((prev) => ({
+                        ...prev,
+                        message: `Enquiry for ${prod.name}`,
+                      }));
+                    }}
+                    className="inline-flex items-center gap-1.5 self-start rounded-sm bg-primary px-3 py-2 text-xs font-bold text-primary-foreground hover:bg-accent transition mt-5"
+                  >
+                    Enquire Now
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                  </a>
                 </div>
-                <div className="p-5">
-                  <h3 className="font-bold">{prod.name}</h3>
-                  <p className="mt-2 text-xs text-muted-foreground">{prod.detail}</p>
+              </article>
+            ))}
+          </div>
+
+          {/* View All Button */}
+          <div className="mt-8 text-center">
+            <button
+              onClick={() => setActiveCategory("all")}
+              className="inline-flex min-h-11 items-center justify-center gap-2 border border-border bg-card px-6 text-xs font-bold text-foreground shadow-sm hover:border-accent transition"
+            >
+              View All Products (17)
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5: BUILT AROUND YOUR BUSINESS */}
+      <section id="business" className="section-space">
+        <div className="container-site">
+          <h2 className="trade-title text-center">Built Around Your Business</h2>
+          <div className="mt-9 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                title: "Bulk & Trade Supply",
+                text: "Discuss your ingredient, quantity and destination requirements.",
+                linkText: "Request Quote",
+                href: "#enquiry",
+              },
+              {
+                title: "Distribution Partners",
+                text: "Explore opportunities for your market and territory.",
+                linkText: "Partner with Us",
+                href: "#enquiry",
+              },
+              {
+                title: "Private Label",
+                text: "Start a conversation about a range for your own brand.",
+                linkText: "Discuss OEM",
+                href: "#enquiry",
+              },
+              {
+                title: "Retail & Food Businesses",
+                text: "Find ingredients for shelves and professional kitchens.",
+                linkText: "View Range",
+                href: "#products",
+              },
+            ].map((item) => (
+              <div key={item.title} className="border-t-2 border-accent pt-5">
+                <h3 className="text-base font-bold text-foreground">{item.title}</h3>
+                <p className="trade-body mt-3">{item.text}</p>
+                <a
+                  href={item.href}
+                  className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-accent hover:underline"
+                >
+                  {item.linkText}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 6: LIVE SPICE PRICES */}
+      <section className="section-space bg-white border-y border-border">
+        <div className="container-site">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div>
+              <span className="eyebrow text-accent">TODAY&apos;S RATES</span>
+              <h2 className="display mt-4 text-4xl sm:text-5xl md:text-6xl text-foreground">
+                Live spice prices.
+              </h2>
+              <p className="mt-3 text-sm text-muted-foreground">
+                Last updated: Direct from Mandi &amp; DC Processing Hub · Rates are subject to reconfirmation.
+              </p>
+            </div>
+            <button
+              onClick={() => setShowPriceModal(true)}
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-sm bg-secondary px-5 text-xs font-bold text-secondary-foreground hover:brightness-110 transition shrink-0"
+            >
+              View full price list
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M7 7h10v10" />
+                <path d="M7 17 17 7" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Highlighted Price Cards */}
+          <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {PRICE_LIST_HIGHLIGHTS.map((item, idx) => (
+              <div
+                key={idx}
+                onClick={() =>
+                  openWhatsApp(
+                    `Hello DC Foods, I want a quote for ${item.product} - ${item.grade} (₹${item.price}/${item.unit}).`
+                  )
+                }
+                className="flex items-center justify-between border border-border bg-white p-5 cursor-pointer hover:border-accent hover:shadow-sm transition"
+              >
+                <div>
+                  <strong className="font-display text-base font-bold text-foreground">
+                    {item.product}
+                  </strong>
+                  <div className="text-xs text-muted-foreground mt-0.5">
+                    {item.grade}
+                  </div>
+                </div>
+                <div className="text-right">
+                  <span className="text-lg font-bold text-primary">
+                    ₹{item.price}/{item.unit}
+                  </span>
+                  <div className="text-[10px] text-accent font-semibold flex items-center justify-end gap-1">
+                    WhatsApp Quote →
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 7: REGISTERED & VERIFIABLE */}
+      <section id="certificates" className="section-space">
+        <div className="container-site">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div>
+              <span className="eyebrow text-accent">CERTIFICATES &amp; COMPLIANCE</span>
+              <h2 className="display mt-4 text-4xl sm:text-5xl md:text-6xl text-foreground">
+                Registered. Verifiable.
+              </h2>
+              <p className="mt-3 inline-block bg-secondary px-3 py-1 text-xs font-bold text-secondary-foreground">
+                GST Registered · GSTIN {COMPANY.gstin}
+              </p>
+            </div>
+            <button
+              onClick={() => setShowCertModal(true)}
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-sm border border-primary px-5 text-xs font-bold text-primary hover:bg-primary hover:text-white transition"
+            >
+              All certificates
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M7 7h10v10" />
+                <path d="M7 17 17 7" />
+              </svg>
+            </button>
+          </div>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {[
+              {
+                title: "GST Registration Certificate",
+                no: COMPANY.gstin,
+                issuedTo: COMPANY.legalName,
+                date: "02 Aug 2025",
+              },
+              {
+                title: "FSSAI Food Safety License",
+                no: COMPANY.fssai,
+                issuedTo: COMPANY.legalName,
+                date: "Central Processing",
+              },
+              {
+                title: "MSME UDYAM Certificate",
+                no: COMPANY.udyam,
+                issuedTo: COMPANY.legalName,
+                date: "Govt. of India",
+              },
+            ].map((cert) => (
+              <article
+                key={cert.title}
+                className="flex flex-col border border-border bg-card p-6 rounded-sm shadow-sm hover:border-accent transition"
+              >
+                <div className="flex aspect-[4/3] items-center justify-center overflow-hidden bg-muted rounded-sm mb-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="48"
+                    height="48"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.2"
+                    className="text-accent"
+                  >
+                    <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path>
+                    <path d="M14 2v5a1 1 0 0 0 1 1h5"></path>
+                    <path d="M10 9H8"></path>
+                    <path d="M16 13H8"></path>
+                    <path d="M16 17H8"></path>
+                  </svg>
+                </div>
+                <h3 className="font-display text-xl font-bold text-foreground">
+                  {cert.title}
+                </h3>
+                <p className="mt-2 text-sm font-bold text-primary">No. {cert.no}</p>
+                <p className="mt-1 text-xs text-muted-foreground">Issued to {cert.issuedTo}</p>
+                <p className="text-xs text-muted-foreground">Issued: {cert.date}</p>
+                <div className="mt-auto flex gap-2 pt-5">
+                  <button
+                    onClick={() => setShowCertModal(true)}
+                    className="inline-flex items-center gap-1 border border-border px-3 py-1.5 text-xs font-semibold hover:bg-muted"
+                  >
+                    View
+                  </button>
+                  <a
+                    href={ASSETS.hub.companyProfilePdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 bg-secondary px-3 py-1.5 text-xs font-bold text-secondary-foreground hover:brightness-110"
+                  >
+                    Download Dossier
+                  </a>
                 </div>
               </article>
             ))}
           </div>
         </div>
       </section>
+
+      {/* SECTION 8: FAQS */}
+      <section id="faqs" className="section-space bg-muted">
+        <div className="container-site grid gap-10 md:grid-cols-2">
+          <div>
+            <h2 className="trade-title">Frequently Asked Questions</h2>
+            <p className="trade-body mt-5">
+              Have a product or trade enquiry? Speak directly with our team for
+              details specific to your business.
+            </p>
+            <a
+              href={`tel:${COMPANY.phone.replace(/\s+/g, "")}`}
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-sm border border-primary text-primary px-5 text-xs font-bold hover:bg-primary hover:text-white transition mt-6"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
+              </svg>
+              {COMPANY.phone}
+            </a>
+          </div>
+
+          <div>
+            {FAQS.map((faq, idx) => (
+              <div key={faq.q} className="border-b border-border">
+                <button
+                  type="button"
+                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  className="flex w-full min-h-14 items-center justify-between gap-4 py-4 text-left text-sm font-bold text-foreground transition hover:text-accent"
+                >
+                  <span>{faq.q}</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    className={`transition-transform duration-200 shrink-0 ${
+                      openFaq === idx ? "rotate-180 text-accent" : ""
+                    }`}
+                  >
+                    <path d="m6 9 6 6 6-6"></path>
+                  </svg>
+                </button>
+                {openFaq === idx && (
+                  <p className="trade-body pb-5 text-xs leading-relaxed animate-in fade-in">
+                    {faq.a}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div>{/* Section 9 enquiry form pending final wiring */}</div>
+      {/* FOOTER */}
+      <footer id="contact" className="trade-footer">
+        <div className="container-site grid gap-9 sm:grid-cols-2 lg:grid-cols-[1.3fr_.8fr_.9fr_1.4fr]">
+          {/* Brand Info */}
+          <div>
+            <div className="flex items-center gap-3">
+              <Image
+                src={ASSETS.hub.logo}
+                alt="DC Foods & Beverages"
+                width={70}
+                height={70}
+                className="size-[70px] object-contain"
+              />
+              <strong className="text-xl font-bold text-white">
+                DC Foods
+                <br />
+                &amp; Beverages
+              </strong>
+            </div>
+            <p className="mt-5 text-xs text-white/75 leading-relaxed">
+              A new-generation food manufacturer in Vadodara, Gujarat. Spices,
+              powders, dehydrated fruits and dairy for retail and trade partners.
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="font-bold text-white">Quick Links</h3>
+            <div className="flex flex-col gap-2">
+              <Link href="/new-page" className="hover:text-secondary">
+                Home
+              </Link>
+              <a href="#products" className="hover:text-secondary">
+                Products
+              </a>
+              <a href="#certificates" className="hover:text-secondary">
+                Certifications
+              </a>
+              <a href="#about" className="hover:text-secondary">
+                About
+              </a>
+              <a href="#contact" className="hover:text-secondary">
+                Contact
+              </a>
+              <a
+                href={ASSETS.hub.companyProfilePdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-secondary"
+              >
+                Download Brochure
+              </a>
+            </div>
+          </div>
+
+          {/* Trade Links */}
+          <div>
+            <h3 className="font-bold text-white">Trade &amp; Information</h3>
+            <div className="flex flex-col gap-2">
+              <button
+                onClick={() => setShowPriceModal(true)}
+                className="text-left hover:text-secondary text-xs"
+              >
+                Price List
+              </button>
+              <a href="#business" className="hover:text-secondary">
+                Export &amp; Quality
+              </a>
+              <a href="#business" className="hover:text-secondary">
+                Private Label
+              </a>
+              <a href="#business" className="hover:text-secondary">
+                Distributors
+              </a>
+              <a href="#enquiry" className="hover:text-secondary">
+                Request a Quote
+              </a>
+            </div>
+          </div>
+
+          {/* Contact Details */}
+          <div>
+            <h3 className="font-bold text-white">Contact Us</h3>
+            <a
+              className="flex items-center gap-2 hover:text-secondary text-xs font-semibold"
+              href={`tel:${COMPANY.phone.replace(/\s+/g, "")}`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
+              </svg>
+              {COMPANY.phone}
+            </a>
+
+            <button
+              onClick={() => openWhatsApp()}
+              className="mt-3 flex items-center gap-2 text-xs font-semibold text-secondary hover:underline"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path>
+              </svg>
+              Chat on WhatsApp
+            </button>
+
+            <p className="mt-4 flex gap-2 text-xs text-white/75 leading-relaxed">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                className="mt-0.5 shrink-0"
+              >
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              {COMPANY.factoryAddress}
+            </p>
+
+            <p className="mt-4 text-xs text-white/75">
+              <strong>GSTIN:</strong> {COMPANY.gstin}
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="trade-footer-bottom mt-10">
+          <div className="container-site flex flex-col justify-between gap-2 sm:flex-row text-xs text-white/60">
+            <p>
+              © {new Date().getFullYear()} {COMPANY.legalName}. All rights
+              reserved.
+            </p>
+            <p>Incorporated {COMPANY.incorporated} · Vadodara, India</p>
+          </div>
+        </div>
+      </footer>
+
+      {/* FLOATING ACTION WIDGETS */}
+      <div className="fixed bottom-5 right-4 z-40 flex flex-col gap-2">
+        {/* Back to Top */}
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          aria-label="Back to top"
+          className="flex size-10 items-center justify-center rounded-full border border-border bg-white text-foreground shadow-md hover:bg-muted transition"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="m18 15-6-6-6 6"></path>
+          </svg>
+        </button>
+
+        {/* WhatsApp Floating */}
+        <button
+          onClick={() => openWhatsApp()}
+          aria-label="Chat on WhatsApp"
+          className="flex size-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg hover:scale-105 transition"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path>
+          </svg>
+        </button>
+      </div>
+
+      {/* MODAL: Full Price List */}
+      {showPriceModal && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 p-4"
+          onClick={() => setShowPriceModal(false)}
+        >
+          <div
+            className="relative max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded bg-white p-6 shadow-xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between border-b pb-4">
+              <div>
+                <span className="eyebrow text-accent">TODAY&apos;S RATES</span>
+                <h3 className="font-display text-2xl font-bold">Official Spice Rates</h3>
+              </div>
+              <button
+                onClick={() => setShowPriceModal(false)}
+                className="rounded p-1 text-muted-foreground hover:bg-muted"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="mt-4 space-y-4">
+              <div>
+                <h4 className="font-bold text-primary text-sm mb-2">Turmeric Finger (50 KG Jute Nett)</h4>
+                <div className="grid gap-2 sm:grid-cols-2 text-xs">
+                  <div className="p-3 border rounded bg-muted/30 flex justify-between">
+                    <span>Nizamabad Quality - Good Grade</span>
+                    <strong className="text-primary font-bold">₹210/KG</strong>
+                  </div>
+                  <div className="p-3 border rounded bg-muted/30 flex justify-between">
+                    <span>Nizamabad Quality - FAQ</span>
+                    <strong className="text-primary font-bold">₹200/KG</strong>
+                  </div>
+                  <div className="p-3 border rounded bg-muted/30 flex justify-between">
+                    <span>Maharashtra Quality - Good</span>
+                    <strong className="text-primary font-bold">₹220/KG</strong>
+                  </div>
+                  <div className="p-3 border rounded bg-muted/30 flex justify-between">
+                    <span>Maharashtra Quality - Bulb</span>
+                    <strong className="text-primary font-bold">₹240/KG</strong>
+                  </div>
+                  <div className="p-3 border rounded bg-muted/30 flex justify-between">
+                    <span>Kaddapa Quality - Good Grade</span>
+                    <strong className="text-primary font-bold">₹210/KG</strong>
+                  </div>
+                  <div className="p-3 border rounded bg-muted/30 flex justify-between">
+                    <span>Kaddapa Quality - FAQ Grade</span>
+                    <strong className="text-primary font-bold">₹200/KG</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="font-bold text-primary text-sm mb-2">Seeds (25 KG PP Bag Nett · F.O.R Mundra)</h4>
+                <div className="grid gap-2 sm:grid-cols-2 text-xs">
+                  <div className="p-3 border rounded bg-muted/30 flex justify-between">
+                    <span>Asaliya Seed - FAQ</span>
+                    <strong className="text-accent">Quote on Request</strong>
+                  </div>
+                  <div className="p-3 border rounded bg-muted/30 flex justify-between">
+                    <span>Flax Seeds - Cleaned</span>
+                    <strong className="text-accent">Quote on Request</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 flex flex-wrap justify-between items-center gap-3 pt-4 border-t">
+                <span className="text-xs text-muted-foreground">
+                  ⚠️ Rates are subject to market reconfirmation.
+                </span>
+                <button
+                  onClick={() => openWhatsApp("Hello DC Foods, please send the official PDF price list.")}
+                  className="rounded bg-secondary px-4 py-2 text-xs font-bold text-secondary-foreground"
+                >
+                  Request Official PDF Ratecard
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* MODAL: Full Certificates */}
+      {showCertModal && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 p-4"
+          onClick={() => setShowCertModal(false)}
+        >
+          <div
+            className="relative max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded bg-white p-6 shadow-xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between border-b pb-4">
+              <div>
+                <span className="eyebrow text-accent">LEGAL &amp; COMPLIANCE</span>
+                <h3 className="font-display text-2xl font-bold">Company Certifications</h3>
+              </div>
+              <button
+                onClick={() => setShowCertModal(false)}
+                className="rounded p-1 text-muted-foreground hover:bg-muted"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="mt-4 space-y-3 text-xs">
+              <div className="border p-4 rounded bg-muted/20">
+                <strong className="text-sm block text-primary">Goods &amp; Services Tax (GST)</strong>
+                <p className="mt-1">GSTIN: <span className="font-mono font-bold">{COMPANY.gstin}</span></p>
+                <p className="text-muted-foreground mt-0.5">Issued to: {COMPANY.legalName}</p>
+                <p className="text-muted-foreground">Status: Active &amp; Verified</p>
+              </div>
+              <div className="border p-4 rounded bg-muted/20">
+                <strong className="text-sm block text-primary">Ministry of Corporate Affairs (MCA)</strong>
+                <p className="mt-1">CIN: <span className="font-mono font-bold">{COMPANY.cin}</span></p>
+                <p className="text-muted-foreground mt-0.5">Incorporation Date: {COMPANY.incorporated}</p>
+              </div>
+              <div className="border p-4 rounded bg-muted/20">
+                <strong className="text-sm block text-primary">MSME UDYAM Registration</strong>
+                <p className="mt-1">UDYAM Number: <span className="font-mono font-bold">{COMPANY.udyam}</span></p>
+              </div>
+              <div className="border p-4 rounded bg-muted/20">
+                <strong className="text-sm block text-primary">DPIIT Startup Recognition</strong>
+                <p className="mt-1">Certificate Number: <span className="font-mono font-bold">{COMPANY.dpiit}</span></p>
+              </div>
+              <div className="border p-4 rounded bg-muted/20">
+                <strong className="text-sm block text-primary">Food Safety and Standards Authority of India (FSSAI)</strong>
+                <p className="mt-1">License Number: <span className="font-mono font-bold">{COMPANY.fssai}</span></p>
+              </div>
+            </div>
+
+            <div className="mt-6 flex justify-end gap-3 pt-4 border-t">
+              <a
+                href={ASSETS.hub.companyProfilePdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded bg-primary px-4 py-2 text-xs font-bold text-white hover:bg-accent"
+              >
+                Download Full Company Dossier (PDF)
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
+
