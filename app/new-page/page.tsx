@@ -1053,7 +1053,305 @@ export default function DCFoodsHubPage() {
         </div>
       </section>
 
-      <div>{/* Section 9 enquiry form pending final wiring */}</div>
+      {/* SECTION 9: SEND US YOUR ENQUIRY */}
+      <section id="enquiry" className="section-space">
+        <div className="container-site grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
+          {/* Left Details */}
+          <div>
+            <h2 className="trade-title">Send Us Your Enquiry</h2>
+            <p className="trade-body mt-5">
+              Connect with DC Foods for product sourcing, distribution and
+              private-label requirements.
+            </p>
+            <p className="mt-7 text-sm font-semibold text-foreground">
+              {COMPANY.legalName}
+            </p>
+            <p className="trade-body mt-3 text-xs leading-relaxed">
+              <strong>Factory:</strong> {COMPANY.factoryAddress}
+            </p>
+            <p className="trade-body mt-2 text-xs leading-relaxed">
+              <strong>Registered Office:</strong> {COMPANY.registeredOffice}
+            </p>
+            <a
+              href={`tel:${COMPANY.phone.replace(/\s+/g, "")}`}
+              className="mt-6 inline-flex items-center gap-2 font-bold text-primary hover:text-accent"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
+              </svg>
+              {COMPANY.phone}
+            </a>
+            <div className="mt-3 text-xs font-semibold text-muted-foreground">
+              CIN: {COMPANY.cin}
+            </div>
+            <p className="trade-body mt-1 text-xs">
+              <strong>GSTIN:</strong> {COMPANY.gstin}
+            </p>
+          </div>
+
+          {/* Right Interactive Form */}
+          <div>
+            {formSubmitted ? (
+              <div className="rounded border border-green-600/30 bg-green-50/50 p-6 text-center animate-in fade-in">
+                <div className="mx-auto mb-3 flex size-12 items-center justify-center rounded-full bg-green-100 text-green-700">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold text-green-900">
+                  Enquiry Received Successfully!
+                </h3>
+                <p className="mt-2 text-xs text-green-800">
+                  Thank you, {formData.fullName || "valued partner"}. Our team will review your requirement and get in touch within 24 hours.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    openWhatsApp(
+                      `Hello DC Foods, I just submitted an enquiry for ${formData.businessName || formData.fullName}. Message: ${formData.message}`
+                    );
+                  }}
+                  className="mt-4 inline-flex items-center gap-2 rounded bg-green-700 px-5 py-2.5 text-xs font-bold text-white hover:bg-green-800"
+                >
+                  Confirm on WhatsApp Now
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleFormSubmit} className="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label className="text-xs font-semibold text-foreground">
+                    Your Name *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.fullName}
+                    onChange={(e) =>
+                      setFormData({ ...formData, fullName: e.target.value })
+                    }
+                    placeholder="Enter full name"
+                    className="mt-1 flex w-full rounded-sm border border-input bg-transparent px-3 py-2 text-sm shadow-sm focus:border-accent focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-xs font-semibold text-foreground">
+                    Business / Company Name
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.businessName}
+                    onChange={(e) =>
+                      setFormData({ ...formData, businessName: e.target.value })
+                    }
+                    placeholder="Company or trading firm"
+                    className="mt-1 flex w-full rounded-sm border border-input bg-transparent px-3 py-2 text-sm shadow-sm focus:border-accent focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-xs font-semibold text-foreground">
+                    Phone / WhatsApp Number *
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    value={formData.phone}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
+                    placeholder="+91 98765 43210"
+                    className="mt-1 flex w-full rounded-sm border border-input bg-transparent px-3 py-2 text-sm shadow-sm focus:border-accent focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-xs font-semibold text-foreground">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
+                    placeholder="name@company.com"
+                    className="mt-1 flex w-full rounded-sm border border-input bg-transparent px-3 py-2 text-sm shadow-sm focus:border-accent focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-xs font-semibold text-foreground">
+                    Location / City / State
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.location}
+                    onChange={(e) =>
+                      setFormData({ ...formData, location: e.target.value })
+                    }
+                    placeholder="e.g. Vadodara, Gujarat, India"
+                    className="mt-1 flex w-full rounded-sm border border-input bg-transparent px-3 py-2 text-sm shadow-sm focus:border-accent focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-xs font-semibold text-foreground">
+                    Estimated Quantity
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.quantity}
+                    onChange={(e) =>
+                      setFormData({ ...formData, quantity: e.target.value })
+                    }
+                    placeholder="e.g. 500 KG / 5 Tons / Sample Pack"
+                    className="mt-1 flex w-full rounded-sm border border-input bg-transparent px-3 py-2 text-sm shadow-sm focus:border-accent focus:outline-none"
+                  />
+                </div>
+
+                {/* Requirement Pills */}
+                <div className="sm:col-span-2">
+                  <label className="text-xs font-semibold text-foreground">
+                    Area of Interest
+                  </label>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {[
+                      "Spices & Masalas",
+                      "Onion Powder",
+                      "Guar Gum Powder",
+                      "Dehydrated Fruits",
+                      "Dairy & Ghee",
+                      "Distribution",
+                      "Private Label",
+                    ].map((interest) => (
+                      <button
+                        type="button"
+                        key={interest}
+                        onClick={() => toggleInterest(interest)}
+                        className={`rounded-sm px-3 py-1.5 text-xs font-semibold transition ${
+                          selectedInterests.includes(interest)
+                            ? "bg-primary text-white"
+                            : "border border-border bg-card text-foreground hover:bg-muted"
+                        }`}
+                      >
+                        {interest}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Specific Ingredients Select */}
+                <div className="sm:col-span-2">
+                  <label className="text-xs font-semibold text-foreground">
+                    Specific Powder &amp; Dehydrated Options
+                  </label>
+                  <div className="mt-2 grid grid-cols-3 gap-2 sm:grid-cols-6">
+                    {ENQUIRY_SELECT_ITEMS.map((item) => (
+                      <button
+                        type="button"
+                        key={item.name}
+                        onClick={() =>
+                          setSelectedProductCard(
+                            selectedProductCard === item.name ? "" : item.name
+                          )
+                        }
+                        className={`group relative flex flex-col items-center overflow-hidden rounded border text-left transition ${
+                          selectedProductCard === item.name
+                            ? "border-primary bg-primary/5 ring-2 ring-primary"
+                            : "border-border bg-card hover:border-accent"
+                        }`}
+                      >
+                        <div className="relative aspect-square w-full">
+                          <Image
+                            src={item.img}
+                            alt={item.name}
+                            fill
+                            className="object-cover"
+                            sizes="120px"
+                          />
+                        </div>
+                        <span className="p-1.5 text-[11px] font-semibold text-center line-clamp-1">
+                          {item.name}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                  <span className="mt-1 block text-[11px] text-muted-foreground">
+                    Click to select specific powder or fruit.
+                  </span>
+                </div>
+
+                {/* Message / Details */}
+                <div className="sm:col-span-2">
+                  <label className="text-xs font-semibold text-foreground">
+                    Requirement details *
+                  </label>
+                  <textarea
+                    required
+                    rows={4}
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                    placeholder="Product, format, packaging, destination or any other requirement"
+                    className="mt-1 flex w-full rounded-sm border border-input bg-transparent px-3 py-2 text-sm shadow-sm focus:border-accent focus:outline-none"
+                  />
+                </div>
+
+                {/* Submit Actions */}
+                <div className="sm:col-span-2 flex flex-wrap items-center gap-3">
+                  <button
+                    type="submit"
+                    className="inline-flex min-h-11 items-center justify-center rounded-sm bg-secondary px-7 text-xs font-bold text-secondary-foreground shadow hover:brightness-110 transition"
+                  >
+                    Submit official enquiry
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      openWhatsApp(
+                        `Hello DC Foods, Enquiry from ${formData.fullName || "Partner"}: ${formData.message || "I want to enquire about products."}`
+                      )
+                    }
+                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-sm border border-primary px-7 text-xs font-bold text-primary hover:bg-primary hover:text-white transition"
+                  >
+                    Chat on WhatsApp
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path>
+                    </svg>
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer id="contact" className="trade-footer">
         <div className="container-site grid gap-9 sm:grid-cols-2 lg:grid-cols-[1.3fr_.8fr_.9fr_1.4fr]">
