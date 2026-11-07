@@ -3,10 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import "./hub.css";
 import { ASSETS } from "@/app/assets";
 
-// Company Constants from DC Foods Hub
 const COMPANY = {
   legalName: "DC Foods & Beverages Private Limited",
   displayName: "DC Foods & Beverages",
@@ -217,12 +215,10 @@ const FAQS = [
   },
 ];
 
-export default function DCFoodsHubPage() {
+export default function DCFoodsHubHomePage() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeCategory, setActiveCategory] = useState("all");
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [tradeDropdownOpen, setTradeDropdownOpen] = useState(false);
 
   // Form State
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
@@ -238,7 +234,7 @@ export default function DCFoodsHubPage() {
     message: "",
   });
 
-  // Price Modal State
+  // Modals
   const [showPriceModal, setShowPriceModal] = useState(false);
   const [showCertModal, setShowCertModal] = useState(false);
 
@@ -275,239 +271,7 @@ export default function DCFoodsHubPage() {
   };
 
   return (
-    <div className="hub-root min-h-screen bg-background text-foreground antialiased selection:bg-accent selection:text-white">
-      {/* Schema.org Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: COMPANY.shortName,
-            legalName: COMPANY.legalName,
-            taxID: COMPANY.gstin,
-            telephone: COMPANY.phone,
-            url: "https://dc-foods-hub.lovable.app",
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: COMPANY.registeredOffice,
-              addressLocality: "Vadodara",
-              addressRegion: "Gujarat",
-              addressCountry: "IN",
-            },
-          }),
-        }}
-      />
-
-      {/* HEADER / NAVIGATION */}
-      <header className="site-header">
-        <div className="container-site site-header-inner">
-          <Link
-            href="/new-page"
-            className="site-logo active"
-            aria-label="DC Foods home"
-          >
-            <Image
-              src={ASSETS.hub.logo}
-              alt="DC Foods logo"
-              width={58}
-              height={58}
-              priority
-              className="size-[58px] object-contain"
-            />
-            <span>
-              <strong>DC FOODS</strong>
-              <small>&amp; BEVERAGES PRIVATE LIMITED</small>
-            </span>
-          </Link>
-
-          {/* Desktop Nav */}
-          <nav className="site-nav" aria-label="Main navigation">
-            <Link href="/new-page" className="font-semibold text-accent">
-              Home
-            </Link>
-            <a href="#products">Products</a>
-            <a href="#certificates">Certifications</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-            <a href="#faqs">FAQs</a>
-
-            {/* Trade Dropdown */}
-            <details
-              className="relative"
-              open={tradeDropdownOpen}
-              onToggle={(e) =>
-                setTradeDropdownOpen((e.target as HTMLDetailsElement).open)
-              }
-            >
-              <summary className="flex items-center gap-1 cursor-pointer font-medium text-muted-foreground hover:text-accent">
-                Trade
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-chevron-down"
-                >
-                  <path d="m6 9 6 6 6-6"></path>
-                </svg>
-              </summary>
-              <div className="nav-dropdown">
-                <button
-                  type="button"
-                  onClick={() => setShowPriceModal(true)}
-                  className="text-left hover:text-accent p-2 text-xs"
-                >
-                  Price List
-                </button>
-                <a href="#business" className="hover:text-accent p-2 text-xs">
-                  Export &amp; Quality
-                </a>
-                <a href="#business" className="hover:text-accent p-2 text-xs">
-                  Private Label
-                </a>
-                <a href="#business" className="hover:text-accent p-2 text-xs">
-                  Distributors
-                </a>
-                <a href="#enquiry" className="hover:text-accent p-2 text-xs">
-                  Request a Quote
-                </a>
-              </div>
-            </details>
-
-            <a
-              href={ASSETS.hub.companyProfilePdf}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 rounded bg-muted px-3 py-1.5 text-xs font-semibold text-primary hover:bg-accent hover:text-white transition"
-            >
-              Download Brochure
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M12 15V3" />
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <path d="m7 10 5 5 5-5" />
-              </svg>
-            </a>
-          </nav>
-
-          {/* Mobile Menu Hamburger */}
-          <button
-            className="inline-flex min-h-11 cursor-pointer items-center justify-center rounded-sm p-2 text-foreground hover:bg-muted lg:hidden"
-            aria-label="Toggle menu"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              {mobileMenuOpen ? (
-                <>
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </>
-              ) : (
-                <>
-                  <line x1="4" x2="20" y1="12" y2="12"></line>
-                  <line x1="4" x2="20" y1="6" y2="6"></line>
-                  <line x1="4" x2="20" y1="18" y2="18"></line>
-                </>
-              )}
-            </svg>
-          </button>
-        </div>
-
-        {/* Mobile Dropdown Menu */}
-        {mobileMenuOpen && (
-          <div className="border-b border-border bg-background p-4 lg:hidden animate-in fade-in slide-in-from-top-2">
-            <div className="flex flex-col gap-3">
-              <Link
-                href="/new-page"
-                className="font-semibold text-accent"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Home
-              </Link>
-              <a
-                href="#products"
-                className="text-sm font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Products
-              </a>
-              <a
-                href="#certificates"
-                className="text-sm font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Certifications
-              </a>
-              <a
-                href="#about"
-                className="text-sm font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                About
-              </a>
-              <a
-                href="#contact"
-                className="text-sm font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Contact
-              </a>
-              <a
-                href="#faqs"
-                className="text-sm font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                FAQs
-              </a>
-              <hr className="my-1 border-border" />
-              <button
-                type="button"
-                className="text-left text-sm font-medium text-primary"
-                onClick={() => {
-                  setShowPriceModal(true);
-                  setMobileMenuOpen(false);
-                }}
-              >
-                Live Price List
-              </button>
-              <a
-                href={ASSETS.hub.companyProfilePdf}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded bg-primary py-2 text-xs font-bold text-white"
-              >
-                Download Company Brochure (PDF)
-              </a>
-            </div>
-          </div>
-        )}
-      </header>
-
+    <>
       {/* SECTION 1: HERO CAROUSEL */}
       <section className="trade-hero relative overflow-hidden" aria-label="DC Foods product highlights">
         <Image
@@ -527,12 +291,12 @@ export default function DCFoodsHubPage() {
             <p className={activeSlide > 0 ? "hero-photo-copy" : ""}>
               {slide.description}
             </p>
-            <a
-              href="#enquiry"
+            <Link
+              href="/new-page/request-quote"
               className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-sm bg-secondary px-10 h-10 text-sm font-bold text-secondary-foreground shadow hover:brightness-110 transition"
             >
               Enquire Now
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -620,8 +384,8 @@ export default function DCFoodsHubPage() {
               ))}
             </div>
 
-            <a
-              href="#business"
+            <Link
+              href="/new-page/about"
               className="inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-sm bg-primary px-5 text-xs font-bold text-primary-foreground hover:bg-accent transition mt-7"
             >
               Read More
@@ -639,7 +403,7 @@ export default function DCFoodsHubPage() {
                 <path d="M5 12h14"></path>
                 <path d="m12 5 7 7-7 7"></path>
               </svg>
-            </a>
+            </Link>
           </div>
 
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm border border-border shadow-sm">
@@ -685,14 +449,8 @@ export default function DCFoodsHubPage() {
           <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {filteredProducts.slice(0, 8).map((prod) => (
               <article key={prod.name} className="trade-product">
-                <a
-                  href={`#enquiry`}
-                  onClick={() => {
-                    setFormData((prev) => ({
-                      ...prev,
-                      message: `Enquiry for ${prod.name}`,
-                    }));
-                  }}
+                <Link
+                  href={`/new-page/request-quote?product=${encodeURIComponent(prod.name)}`}
                   className="relative block aspect-[4/3] w-full overflow-hidden bg-muted"
                 >
                   <Image
@@ -702,20 +460,14 @@ export default function DCFoodsHubPage() {
                     className="object-cover transition-transform duration-300 hover:scale-105"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
-                </a>
+                </Link>
                 <div className="flex flex-1 flex-col p-5">
                   <h3 className="font-bold text-foreground text-lg">{prod.name}</h3>
                   <p className="mt-3 flex-1 text-xs text-muted-foreground leading-relaxed">
                     {prod.detail}
                   </p>
-                  <a
-                    href="#enquiry"
-                    onClick={() => {
-                      setFormData((prev) => ({
-                        ...prev,
-                        message: `Enquiry for ${prod.name}`,
-                      }));
-                    }}
+                  <Link
+                    href={`/new-page/request-quote?product=${encodeURIComponent(prod.name)}`}
                     className="inline-flex items-center gap-1.5 self-start rounded-sm bg-primary px-3 py-2 text-xs font-bold text-primary-foreground hover:bg-accent transition mt-5"
                   >
                     Enquire Now
@@ -731,7 +483,7 @@ export default function DCFoodsHubPage() {
                       <path d="M5 12h14"></path>
                       <path d="m12 5 7 7-7 7"></path>
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </article>
             ))}
@@ -739,8 +491,8 @@ export default function DCFoodsHubPage() {
 
           {/* View All Button */}
           <div className="mt-8 text-center">
-            <button
-              onClick={() => setActiveCategory("all")}
+            <Link
+              href="/new-page/products"
               className="inline-flex min-h-11 items-center justify-center gap-2 border border-border bg-card px-6 text-xs font-bold text-foreground shadow-sm hover:border-accent transition"
             >
               View All Products (17)
@@ -756,7 +508,7 @@ export default function DCFoodsHubPage() {
                 <path d="M5 12h14"></path>
                 <path d="m12 5 7 7-7 7"></path>
               </svg>
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -771,31 +523,31 @@ export default function DCFoodsHubPage() {
                 title: "Bulk & Trade Supply",
                 text: "Discuss your ingredient, quantity and destination requirements.",
                 linkText: "Request Quote",
-                href: "#enquiry",
+                href: "/new-page/export-quality",
               },
               {
                 title: "Distribution Partners",
                 text: "Explore opportunities for your market and territory.",
                 linkText: "Partner with Us",
-                href: "#enquiry",
+                href: "/new-page/distributors",
               },
               {
                 title: "Private Label",
                 text: "Start a conversation about a range for your own brand.",
                 linkText: "Discuss OEM",
-                href: "#enquiry",
+                href: "/new-page/private-label",
               },
               {
                 title: "Retail & Food Businesses",
                 text: "Find ingredients for shelves and professional kitchens.",
                 linkText: "View Range",
-                href: "#products",
+                href: "/new-page/products",
               },
             ].map((item) => (
               <div key={item.title} className="border-t-2 border-accent pt-5">
                 <h3 className="text-base font-bold text-foreground">{item.title}</h3>
                 <p className="trade-body mt-3">{item.text}</p>
-                <a
+                <Link
                   href={item.href}
                   className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-accent hover:underline"
                 >
@@ -812,7 +564,7 @@ export default function DCFoodsHubPage() {
                     <path d="M5 12h14"></path>
                     <path d="m12 5 7 7-7 7"></path>
                   </svg>
-                </a>
+                </Link>
               </div>
             ))}
           </div>
@@ -832,8 +584,8 @@ export default function DCFoodsHubPage() {
                 Last updated: Direct from Mandi &amp; DC Processing Hub · Rates are subject to reconfirmation.
               </p>
             </div>
-            <button
-              onClick={() => setShowPriceModal(true)}
+            <Link
+              href="/new-page/price-list"
               className="inline-flex min-h-11 items-center justify-center gap-2 rounded-sm bg-secondary px-5 text-xs font-bold text-secondary-foreground hover:brightness-110 transition shrink-0"
             >
               View full price list
@@ -849,7 +601,7 @@ export default function DCFoodsHubPage() {
                 <path d="M7 7h10v10" />
                 <path d="M7 17 17 7" />
               </svg>
-            </button>
+            </Link>
           </div>
 
           {/* Highlighted Price Cards */}
@@ -899,8 +651,8 @@ export default function DCFoodsHubPage() {
                 GST Registered · GSTIN {COMPANY.gstin}
               </p>
             </div>
-            <button
-              onClick={() => setShowCertModal(true)}
+            <Link
+              href="/new-page/certificates"
               className="inline-flex min-h-11 items-center justify-center gap-2 rounded-sm border border-primary px-5 text-xs font-bold text-primary hover:bg-primary hover:text-white transition"
             >
               All certificates
@@ -916,7 +668,7 @@ export default function DCFoodsHubPage() {
                 <path d="M7 7h10v10" />
                 <path d="M7 17 17 7" />
               </svg>
-            </button>
+            </Link>
           </div>
 
           <div className="mt-10 grid gap-4 md:grid-cols-3">
@@ -1352,201 +1104,6 @@ export default function DCFoodsHubPage() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer id="contact" className="trade-footer">
-        <div className="container-site grid gap-9 sm:grid-cols-2 lg:grid-cols-[1.3fr_.8fr_.9fr_1.4fr]">
-          {/* Brand Info */}
-          <div>
-            <div className="flex items-center gap-3">
-              <Image
-                src={ASSETS.hub.logo}
-                alt="DC Foods & Beverages"
-                width={70}
-                height={70}
-                className="size-[70px] object-contain"
-              />
-              <strong className="text-xl font-bold text-white">
-                DC Foods
-                <br />
-                &amp; Beverages
-              </strong>
-            </div>
-            <p className="mt-5 text-xs text-white/75 leading-relaxed">
-              A new-generation food manufacturer in Vadodara, Gujarat. Spices,
-              powders, dehydrated fruits and dairy for retail and trade partners.
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-bold text-white">Quick Links</h3>
-            <div className="flex flex-col gap-2">
-              <Link href="/new-page" className="hover:text-secondary">
-                Home
-              </Link>
-              <a href="#products" className="hover:text-secondary">
-                Products
-              </a>
-              <a href="#certificates" className="hover:text-secondary">
-                Certifications
-              </a>
-              <a href="#about" className="hover:text-secondary">
-                About
-              </a>
-              <a href="#contact" className="hover:text-secondary">
-                Contact
-              </a>
-              <a
-                href={ASSETS.hub.companyProfilePdf}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-secondary"
-              >
-                Download Brochure
-              </a>
-            </div>
-          </div>
-
-          {/* Trade Links */}
-          <div>
-            <h3 className="font-bold text-white">Trade &amp; Information</h3>
-            <div className="flex flex-col gap-2">
-              <button
-                onClick={() => setShowPriceModal(true)}
-                className="text-left hover:text-secondary text-xs"
-              >
-                Price List
-              </button>
-              <a href="#business" className="hover:text-secondary">
-                Export &amp; Quality
-              </a>
-              <a href="#business" className="hover:text-secondary">
-                Private Label
-              </a>
-              <a href="#business" className="hover:text-secondary">
-                Distributors
-              </a>
-              <a href="#enquiry" className="hover:text-secondary">
-                Request a Quote
-              </a>
-            </div>
-          </div>
-
-          {/* Contact Details */}
-          <div>
-            <h3 className="font-bold text-white">Contact Us</h3>
-            <a
-              className="flex items-center gap-2 hover:text-secondary text-xs font-semibold"
-              href={`tel:${COMPANY.phone.replace(/\s+/g, "")}`}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="15"
-                height="15"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
-              </svg>
-              {COMPANY.phone}
-            </a>
-
-            <button
-              onClick={() => openWhatsApp()}
-              className="mt-3 flex items-center gap-2 text-xs font-semibold text-secondary hover:underline"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="15"
-                height="15"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path>
-              </svg>
-              Chat on WhatsApp
-            </button>
-
-            <p className="mt-4 flex gap-2 text-xs text-white/75 leading-relaxed">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                className="mt-0.5 shrink-0"
-              >
-                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              {COMPANY.factoryAddress}
-            </p>
-
-            <p className="mt-4 text-xs text-white/75">
-              <strong>GSTIN:</strong> {COMPANY.gstin}
-            </p>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="trade-footer-bottom mt-10">
-          <div className="container-site flex flex-col justify-between gap-2 sm:flex-row text-xs text-white/60">
-            <p>
-              © {new Date().getFullYear()} {COMPANY.legalName}. All rights
-              reserved.
-            </p>
-            <p>Incorporated {COMPANY.incorporated} · Vadodara, India</p>
-          </div>
-        </div>
-      </footer>
-
-      {/* FLOATING ACTION WIDGETS */}
-      <div className="fixed bottom-5 right-4 z-40 flex flex-col gap-2">
-        {/* Back to Top */}
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          aria-label="Back to top"
-          className="flex size-10 items-center justify-center rounded-full border border-border bg-white text-foreground shadow-md hover:bg-muted transition"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path d="m18 15-6-6-6 6"></path>
-          </svg>
-        </button>
-
-        {/* WhatsApp Floating */}
-        <button
-          onClick={() => openWhatsApp()}
-          aria-label="Chat on WhatsApp"
-          className="flex size-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg hover:scale-105 transition"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path>
-          </svg>
-        </button>
-      </div>
-
       {/* MODAL: Full Price List */}
       {showPriceModal && (
         <div
@@ -1621,12 +1178,12 @@ export default function DCFoodsHubPage() {
                 <span className="text-xs text-muted-foreground">
                   ⚠️ Rates are subject to market reconfirmation.
                 </span>
-                <button
-                  onClick={() => openWhatsApp("Hello DC Foods, please send the official PDF price list.")}
+                <Link
+                  href="/new-page/price-list"
                   className="rounded bg-secondary px-4 py-2 text-xs font-bold text-secondary-foreground"
                 >
-                  Request Official PDF Ratecard
-                </button>
+                  View Full Price List Page
+                </Link>
               </div>
             </div>
           </div>
@@ -1685,19 +1242,16 @@ export default function DCFoodsHubPage() {
             </div>
 
             <div className="mt-6 flex justify-end gap-3 pt-4 border-t">
-              <a
-                href={ASSETS.hub.companyProfilePdf}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/new-page/certificates"
                 className="rounded bg-primary px-4 py-2 text-xs font-bold text-white hover:bg-accent"
               >
-                Download Full Company Dossier (PDF)
-              </a>
+                Go to Dedicated Certifications Page
+              </Link>
             </div>
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
-
