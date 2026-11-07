@@ -310,3 +310,4 @@ export function Loader2({ className = "size-4", ...props }: React.SVGProps<SVGSV
     </svg>
   );
 }
+
